@@ -1005,7 +1005,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (isRateLimited()) {
-            alert("Security Alert: Too many submissions. Please wait 5 minutes before trying again.");
+            alert("Too many requests. Please wait a few minutes before trying again to keep the system safe.");
             return;
         }
 
@@ -1036,7 +1036,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Show booking key in success popup
                 const modalSuccessText = modalSuccess.querySelector('p');
                 if (modalSuccessText) {
-                    modalSuccessText.innerHTML = `Your booking confirmation key is <strong>${bookingKey}</strong>. You are now being redirected directly to WhatsApp to complete your consultation.`;
+                    modalSuccessText.innerHTML = `Thank you for trusting Life Root Ayurveda. Your private consultation request has been securely registered. We are now redirecting you directly to our senior specialist on WhatsApp.`;
                 }
 
                 // Cross-fade form views using GSAP
@@ -1071,7 +1071,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (isRateLimited()) {
-            alert("Security Alert: Too many submissions. Please wait 5 minutes before trying again.");
+            alert("Too many requests. Please wait a few minutes before trying again to keep the system safe.");
             return;
         }
 
@@ -1101,7 +1101,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 const directSuccessText = directSuccess.querySelector('p');
                 if (directSuccessText) {
-                    directSuccessText.innerHTML = `Your booking key is <strong>${bookingKey}</strong>. You are now being redirected directly to WhatsApp to complete your consultation.`;
+                    directSuccessText.innerHTML = `Thank you for trusting Life Root Ayurveda. Your request has been safely saved. We are now redirecting you to WhatsApp to consult with our specialist.`;
                 }
 
                 gsap.to(directForm, {
@@ -1168,32 +1168,32 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="admin-panel-overlay" id="admin-panel">
             <div class="admin-box">
                 <div class="admin-header">
-                    <h3>Life Root Ayurveda — Lead Console</h3>
+                    <h3>Life Root Ayurveda — Patient Dashboard</h3>
                     <button class="admin-close-btn" id="admin-close-btn">&times;</button>
                 </div>
                 
                 <div class="admin-login-view" id="admin-login-view">
                     <div class="admin-login-card">
                         <h4>Administrator Access</h4>
-                        <p>Enter clinic security passcode to access leads database.</p>
+                        <p>Welcome back! Enter your secure passcode to access the patient consultations database.</p>
                         <input type="password" id="admin-passcode-input" placeholder="••••••••" maxlength="16">
-                        <div class="err-admin-login" id="err-admin-login">Incorrect Passcode. Try again.</div>
-                        <button class="btn btn-primary w-full" id="admin-login-btn">Verify Access</button>
+                        <div class="err-admin-login" id="err-admin-login">Incorrect Passcode. Please try again.</div>
+                        <button class="btn btn-primary w-full" id="admin-login-btn">Unlock Dashboard</button>
                     </div>
                 </div>
                 
                 <div class="admin-dashboard-view" id="admin-dashboard-view">
                     <div class="admin-stats-row">
                         <div class="admin-stat-card">
-                            <span>Total Leads</span>
+                            <span>Total Inquiries</span>
                             <h4 id="stat-total-leads">0</h4>
                         </div>
                         <div class="admin-stat-card">
-                            <span>Pending Consults</span>
+                            <span>New Pending Inquiries</span>
                             <h4 id="stat-pending-leads">0</h4>
                         </div>
                         <div class="admin-stat-card">
-                            <span>Newsletter Subscribers</span>
+                            <span>Newsletter Members</span>
                             <h4 id="stat-newsletter-subs">0</h4>
                         </div>
                     </div>
@@ -1203,15 +1203,15 @@ document.addEventListener('DOMContentLoaded', () => {
                             <input type="text" class="admin-search-input" id="admin-search-input" placeholder="Search by name, phone, or department...">
                         </div>
                         <div class="admin-actions-group">
-                            <button class="btn-admin-action btn-export" id="admin-export-leads-btn">Export Leads (CSV)</button>
-                            <button class="btn-admin-action btn-export" id="admin-export-news-btn">Export Subscribers (CSV)</button>
-                            <button class="btn-admin-action btn-reset" id="admin-reset-btn">Wipe Database</button>
+                            <button class="btn-admin-action btn-export" id="admin-export-leads-btn">Download Patient Leads (CSV)</button>
+                            <button class="btn-admin-action btn-export" id="admin-export-news-btn">Download Newsletter Leads (CSV)</button>
+                            <button class="btn-admin-action btn-reset" id="admin-reset-btn">Clear Dashboard Records</button>
                         </div>
                     </div>
                     
                     <div class="admin-tab-bar">
-                        <button class="admin-tab-btn active" id="tab-leads-btn">Consultation Bookings</button>
-                        <button class="admin-tab-btn" id="tab-news-btn">Newsletter Subscriptions</button>
+                        <button class="admin-tab-btn active" id="tab-leads-btn">Patient Consultation Inquiries</button>
+                        <button class="admin-tab-btn" id="tab-news-btn">Newsletter Members List</button>
                     </div>
                     
                     <div class="admin-table-wrapper">
@@ -1220,10 +1220,10 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <tr>
                                     <th>ID</th>
                                     <th>Patient Name</th>
-                                    <th>WhatsApp Phone</th>
+                                    <th>WhatsApp Contact</th>
                                     <th>Concern</th>
-                                    <th>Date Requested</th>
-                                    <th>Lead Status</th>
+                                    <th>Appointment Date / Slot</th>
+                                    <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -1488,7 +1488,7 @@ document.addEventListener('DOMContentLoaded', () => {
         );
 
         if (filteredLeads.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="7" class="admin-empty-state">No consultation leads found.</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="7" class="admin-empty-state">No patient inquiries have been received yet.</td></tr>`;
             return;
         }
 
@@ -1600,11 +1600,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Reset database
     resetBtn.addEventListener('click', () => {
-        if (confirm("WARNING: Are you sure you want to completely erase the leads and newsletter subscribers database? This action is permanent!")) {
+        if (confirm("WARNING: Are you sure you want to permanently clear all patient and newsletter records from the dashboard? This action cannot be undone!")) {
             localStorage.removeItem('lr_leads');
             localStorage.removeItem('lr_subscribers');
             refreshAdminData();
-            alert("Database successfully wiped.");
+            alert("Dashboard database has been successfully cleared.");
         }
     });
 
