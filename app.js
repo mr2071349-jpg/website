@@ -1,5 +1,5 @@
 /**
- * VEDAVITAL AYURVEDA - LUXURY CLINIC APPLICATION
+ * LIFE ROOT AYURVEDA - LUXURY CLINIC APPLICATION
  * DYNAMIC MOTION SYSTEM & INTERACTION ENGINE (GSAP + ScrollTrigger + Lenis)
  */
 
@@ -862,7 +862,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================================================
-    // 9. CLIENT SIDE FORM VALIDATION AND SUBMISSION
+    // 9. CLIENT SIDE FORM VALIDATION, SECURITY, REDIRECTION, AND DATABASE
     // ==========================================================================
     const directForm = document.getElementById('direct-booking-form');
     const directSuccess = document.getElementById('direct-success-state');
@@ -886,6 +886,15 @@ document.addEventListener('DOMContentLoaded', () => {
         form.querySelectorAll('.form-group').forEach(group => group.classList.remove('invalid'));
     }
 
+    // Input sanitization to prevent XSS / Script injection
+    function sanitizeInput(val) {
+        return val.replace(/&/g, "&amp;")
+                  .replace(/</g, "&lt;")
+                  .replace(/>/g, "&gt;")
+                  .replace(/"/g, "&quot;")
+                  .replace(/'/g, "&#039;");
+    }
+
     // Validation definitions
     const nameValid = (val) => val.length >= 3;
     const phoneValid = (val) => /^[6-9]\d{9}$/.test(val);
@@ -893,29 +902,143 @@ document.addEventListener('DOMContentLoaded', () => {
     const dateValid = (val) => val !== "";
     const emailValid = (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
 
+    // Math Captcha Logic
+    let directCaptchaAnswer = 0;
+    let modalCaptchaAnswer = 0;
+
+    function generateCaptchas() {
+        const num1 = Math.floor(Math.random() * 9) + 1;
+        const num2 = Math.floor(Math.random() * 9) + 1;
+        directCaptchaAnswer = num1 + num2;
+        const directQuestEl = document.getElementById('direct-captcha-quest');
+        if (directQuestEl) directQuestEl.innerText = `${num1} + ${num2}`;
+
+        const num3 = Math.floor(Math.random() * 9) + 1;
+        const num4 = Math.floor(Math.random() * 9) + 1;
+        modalCaptchaAnswer = num3 + num4;
+        const modalQuestEl = document.getElementById('modal-captcha-quest');
+        if (modalQuestEl) modalQuestEl.innerText = `${num3} + ${num4}`;
+    }
+    generateCaptchas();
+
+    // Security Honeypot check
+    function isSpamBot(form) {
+        const honeypot = form.querySelector('input[name="website_url"]');
+        return honeypot && honeypot.value.trim() !== "";
+    }
+
+    // Rate Limiting (Max 3 submissions in 5 minutes per browser)
+    function isRateLimited() {
+        const now = Date.now();
+        const submissions = JSON.parse(localStorage.getItem('lr_submission_times') || '[]');
+        
+        // Filter submissions older than 5 minutes (300,000 ms)
+        const recentSubmissions = submissions.filter(time => now - time < 300000);
+        
+        if (recentSubmissions.length >= 3) {
+            return true;
+        }
+        
+        recentSubmissions.push(now);
+        localStorage.setItem('lr_submission_times', JSON.stringify(recentSubmissions));
+        return false;
+    }
+
+    // Local Database functions
+    function saveLeadToDb(name, phone, concern, date) {
+        try {
+            const leads = JSON.parse(localStorage.getItem('lr_leads') || '[]');
+            const newLead = {
+                id: 'LR-' + Math.floor(1000 + Math.random() * 9000),
+                name: sanitizeInput(name),
+                phone: sanitizeInput(phone),
+                concern: sanitizeInput(concern),
+                date: sanitizeInput(date),
+                timestamp: new Date().toLocaleString(),
+                status: 'pending'
+            };
+            leads.push(newLead);
+            localStorage.setItem('lr_leads', JSON.stringify(leads));
+            refreshAdminData(); // Refresh panel tables if open
+            return newLead.id;
+        } catch (e) {
+            console.error("Local database error", e);
+            return 'LR-' + Math.floor(1000 + Math.random() * 9000);
+        }
+    }
+
+    function saveSubscriberToDb(email) {
+        try {
+            const subscribers = JSON.parse(localStorage.getItem('lr_subscribers') || '[]');
+            if (!subscribers.some(sub => sub.email === email)) {
+                subscribers.push({
+                    email: sanitizeInput(email),
+                    timestamp: new Date().toLocaleString()
+                });
+                localStorage.setItem('lr_subscribers', JSON.stringify(subscribers));
+                refreshAdminData();
+            }
+        } catch (e) {
+            console.error("Local database error", e);
+        }
+    }
+
+    // Form Redirection to WhatsApp
+    function redirectToWhatsApp(name, phone, department, date) {
+        const waNumber = "916387742417";
+        const message = `Hello Life Root Ayurveda,\nI would like to book a private consultation.\n\n*Name:* ${name}\n*WhatsApp:* ${phone}\n*Concern:* ${department}\n*Preferred Date:* ${date}`;
+        const encodedMsg = encodeURIComponent(message);
+        const waUrl = `https://wa.me/${waNumber}?text=${encodedMsg}`;
+        
+        // Open WhatsApp redirect in current tab for quick communication
+        window.location.href = waUrl;
+    }
+
     // 9a. Modal Form Submit
     modalForm.addEventListener('submit', (e) => {
         e.preventDefault();
+
+        if (isSpamBot(modalForm)) {
+            // Silently ignore spam bots
+            closeModal();
+            return;
+        }
+
+        if (isRateLimited()) {
+            alert("Security Alert: Too many submissions. Please wait 5 minutes before trying again.");
+            return;
+        }
 
         const nameInput = document.getElementById('modal-name');
         const phoneInput = document.getElementById('modal-phone');
         const deptInput = document.getElementById('modal-department');
         const dateInput = document.getElementById('modal-date');
+        const captchaInput = document.getElementById('modal-captcha');
 
         const isNameOk = validateField(nameInput, nameValid);
         const isPhoneOk = validateField(phoneInput, phoneValid);
         const isDeptOk = validateField(deptInput, selectionValid);
         const isDateOk = validateField(dateInput, dateValid);
+        const isCaptchaOk = validateField(captchaInput, (val) => parseInt(val) === modalCaptchaAnswer);
 
-        if (isNameOk && isPhoneOk && isDeptOk && isDateOk) {
+        if (isNameOk && isPhoneOk && isDeptOk && isDateOk && isCaptchaOk) {
             const submitBtn = modalForm.querySelector('.btn-form-submit');
             submitBtn.classList.add('loading');
             submitBtn.setAttribute('disabled', 'true');
+
+            // Save to database
+            const bookingKey = saveLeadToDb(nameInput.value, phoneInput.value, deptInput.value, dateInput.value);
 
             setTimeout(() => {
                 submitBtn.classList.remove('loading');
                 submitBtn.removeAttribute('disabled');
                 
+                // Show booking key in success popup
+                const modalSuccessText = modalSuccess.querySelector('p');
+                if (modalSuccessText) {
+                    modalSuccessText.innerHTML = `Your booking confirmation key is <strong>${bookingKey}</strong>. You are now being redirected directly to WhatsApp to complete your consultation.`;
+                }
+
                 // Cross-fade form views using GSAP
                 gsap.to(modalForm, {
                     opacity: 0,
@@ -925,9 +1048,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         modalForm.style.opacity = 1;
                         modalSuccess.classList.add('active');
                         gsap.fromTo(modalSuccess, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.4 });
+                        
+                        // WhatsApp Redirection after 1.5 seconds
+                        setTimeout(() => {
+                            redirectToWhatsApp(nameInput.value, phoneInput.value, deptInput.value, dateInput.value);
+                        }, 1500);
                     }
                 });
-            }, 1500);
+            }, 1000);
+        } else {
+            generateCaptchas(); // Reset captcha on failure
         }
     });
 
@@ -935,25 +1065,45 @@ document.addEventListener('DOMContentLoaded', () => {
     directForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
+        if (isSpamBot(directForm)) {
+            directForm.reset();
+            return;
+        }
+
+        if (isRateLimited()) {
+            alert("Security Alert: Too many submissions. Please wait 5 minutes before trying again.");
+            return;
+        }
+
         const nameInput = document.getElementById('direct-name');
         const phoneInput = document.getElementById('direct-phone');
         const deptInput = document.getElementById('direct-department');
         const dateInput = document.getElementById('direct-date');
+        const captchaInput = document.getElementById('direct-captcha');
 
         const isNameOk = validateField(nameInput, nameValid);
         const isPhoneOk = validateField(phoneInput, phoneValid);
         const isDeptOk = validateField(deptInput, selectionValid);
         const isDateOk = validateField(dateInput, dateValid);
+        const isCaptchaOk = validateField(captchaInput, (val) => parseInt(val) === directCaptchaAnswer);
 
-        if (isNameOk && isPhoneOk && isDeptOk && isDateOk) {
+        if (isNameOk && isPhoneOk && isDeptOk && isDateOk && isCaptchaOk) {
             const submitBtn = directForm.querySelector('.btn-form-submit');
             submitBtn.classList.add('loading');
             submitBtn.setAttribute('disabled', 'true');
+
+            // Save to database
+            const bookingKey = saveLeadToDb(nameInput.value, phoneInput.value, deptInput.value, dateInput.value);
 
             setTimeout(() => {
                 submitBtn.classList.remove('loading');
                 submitBtn.removeAttribute('disabled');
                 
+                const directSuccessText = directSuccess.querySelector('p');
+                if (directSuccessText) {
+                    directSuccessText.innerHTML = `Your booking key is <strong>${bookingKey}</strong>. You are now being redirected directly to WhatsApp to complete your consultation.`;
+                }
+
                 gsap.to(directForm, {
                     opacity: 0,
                     duration: 0.3,
@@ -962,15 +1112,28 @@ document.addEventListener('DOMContentLoaded', () => {
                         directForm.style.opacity = 1;
                         directSuccess.classList.add('active');
                         gsap.fromTo(directSuccess, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.4 });
+                        
+                        // WhatsApp Redirection
+                        setTimeout(() => {
+                            redirectToWhatsApp(nameInput.value, phoneInput.value, deptInput.value, dateInput.value);
+                        }, 1500);
                     }
                 });
-            }, 1500);
+            }, 1000);
+        } else {
+            generateCaptchas(); // Reset captcha on failure
         }
     });
 
     // 9c. Newsletter Form Submit
     newsletterForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        
+        if (isRateLimited()) {
+            alert("Security Alert: Too many requests.");
+            return;
+        }
+
         const emailInput = document.getElementById('news-email');
         const errSpan = document.getElementById('err-news');
         const successSpan = document.getElementById('success-news');
@@ -980,6 +1143,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isEmailOk) {
             errSpan.style.display = 'none';
             successSpan.style.display = 'block';
+            
+            // Save email subscriber to database
+            saveSubscriberToDb(emailInput.value);
+            
             emailInput.value = '';
             gsap.fromTo(successSpan, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.3 });
             
@@ -991,5 +1158,442 @@ document.addEventListener('DOMContentLoaded', () => {
             errSpan.style.display = 'block';
             gsap.fromTo(errSpan, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.3 });
         }
+    });
+
+    // ==========================================================================
+    // 10. PREMIUM DYNAMIC ADMIN PANEL LAYOUT & LOGIC
+    // ==========================================================================
+    function injectAdminPanel() {
+        const adminHtml = `
+        <div class="admin-panel-overlay" id="admin-panel">
+            <div class="admin-box">
+                <div class="admin-header">
+                    <h3>Life Root Ayurveda — Lead Console</h3>
+                    <button class="admin-close-btn" id="admin-close-btn">&times;</button>
+                </div>
+                
+                <div class="admin-login-view" id="admin-login-view">
+                    <div class="admin-login-card">
+                        <h4>Administrator Access</h4>
+                        <p>Enter clinic security passcode to access leads database.</p>
+                        <input type="password" id="admin-passcode-input" placeholder="••••••••" maxlength="16">
+                        <div class="err-admin-login" id="err-admin-login">Incorrect Passcode. Try again.</div>
+                        <button class="btn btn-primary w-full" id="admin-login-btn">Verify Access</button>
+                    </div>
+                </div>
+                
+                <div class="admin-dashboard-view" id="admin-dashboard-view">
+                    <div class="admin-stats-row">
+                        <div class="admin-stat-card">
+                            <span>Total Leads</span>
+                            <h4 id="stat-total-leads">0</h4>
+                        </div>
+                        <div class="admin-stat-card">
+                            <span>Pending Consults</span>
+                            <h4 id="stat-pending-leads">0</h4>
+                        </div>
+                        <div class="admin-stat-card">
+                            <span>Newsletter Subscribers</span>
+                            <h4 id="stat-newsletter-subs">0</h4>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-controls-bar">
+                        <div class="admin-search-wrapper">
+                            <input type="text" class="admin-search-input" id="admin-search-input" placeholder="Search by name, phone, or department...">
+                        </div>
+                        <div class="admin-actions-group">
+                            <button class="btn-admin-action btn-export" id="admin-export-leads-btn">Export Leads (CSV)</button>
+                            <button class="btn-admin-action btn-export" id="admin-export-news-btn">Export Subscribers (CSV)</button>
+                            <button class="btn-admin-action btn-reset" id="admin-reset-btn">Wipe Database</button>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-tab-bar">
+                        <button class="admin-tab-btn active" id="tab-leads-btn">Consultation Bookings</button>
+                        <button class="admin-tab-btn" id="tab-news-btn">Newsletter Subscriptions</button>
+                    </div>
+                    
+                    <div class="admin-table-wrapper">
+                        <table class="admin-table" id="admin-leads-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Patient Name</th>
+                                    <th>WhatsApp Phone</th>
+                                    <th>Concern</th>
+                                    <th>Date Requested</th>
+                                    <th>Lead Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-leads-tbody">
+                                <!-- Rendered dynamically -->
+                            </tbody>
+                        </table>
+                        
+                        <table class="admin-table" id="admin-news-table" style="display:none;">
+                            <thead>
+                                <tr>
+                                    <th>Subscriber Email</th>
+                                    <th>Date Subscribed</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-news-tbody">
+                                <!-- Rendered dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `;
+        
+        const container = document.createElement('div');
+        container.innerHTML = adminHtml;
+        document.body.appendChild(container.firstElementChild);
+    }
+    injectAdminPanel();
+
+    const adminPanel = document.getElementById('admin-panel');
+    const loginView = document.getElementById('admin-login-view');
+    const dashboardView = document.getElementById('admin-dashboard-view');
+    const passcodeFileInput = document.getElementById('admin-passcode-input');
+    const loginBtn = document.getElementById('admin-login-btn');
+    const errLoginEl = document.getElementById('err-admin-login');
+    const closeAdminBtn = document.getElementById('admin-close-btn');
+
+    // Show/Hide tables
+    const leadsTable = document.getElementById('admin-leads-table');
+    const newsTable = document.getElementById('admin-news-table');
+    const tabLeadsBtn = document.getElementById('tab-leads-btn');
+    const tabNewsBtn = document.getElementById('tab-news-btn');
+
+    // Controls
+    const searchInput = document.getElementById('admin-search-input');
+    const exportLeadsBtn = document.getElementById('admin-export-leads-btn');
+    const exportNewsBtn = document.getElementById('admin-export-news-btn');
+    const resetBtn = document.getElementById('admin-reset-btn');
+
+    function openAdminPanel() {
+        adminPanel.classList.add('active');
+        lenis.stop();
+        
+        // Auto check login session status
+        if (sessionStorage.getItem('lr_admin_logged_in') === 'true') {
+            adminPanel.classList.add('logged-in');
+            refreshAdminData();
+        } else {
+            adminPanel.classList.remove('logged-in');
+            passcodeFileInput.value = '';
+            errLoginEl.style.display = 'none';
+            setTimeout(() => passcodeFileInput.focus(), 150);
+        }
+
+        gsap.fromTo('.admin-box',
+            { scale: 0.9, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.2)" }
+        );
+    }
+
+    function closeAdminPanel() {
+        gsap.to('.admin-box', {
+            scale: 0.9,
+            opacity: 0,
+            duration: 0.3,
+            onComplete: () => {
+                adminPanel.classList.remove('active');
+                lenis.start();
+            }
+        });
+    }
+
+    // Trigger on clicking Footer Logo 5 times
+    const footerLogo = document.querySelector('.footer-logo');
+    if (footerLogo) {
+        let logoClicks = 0;
+        let logoTimer;
+        footerLogo.addEventListener('click', (e) => {
+            e.preventDefault();
+            logoClicks++;
+            clearTimeout(logoTimer);
+            logoTimer = setTimeout(() => logoClicks = 0, 3000);
+            
+            if (logoClicks >= 5) {
+                logoClicks = 0;
+                openAdminPanel();
+            }
+        });
+    }
+
+    // Key shortcut Ctrl + Alt + A
+    document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.altKey && e.key.toLowerCase() === 'a') {
+            e.preventDefault();
+            openAdminPanel();
+        }
+    });
+
+    closeAdminBtn.addEventListener('click', closeAdminPanel);
+
+    // Secure SHA-256 hashing
+    async function sha256(message) {
+        const msgBuffer = new TextEncoder().encode(message);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        return hashHex;
+    }
+
+    // Passcode validation via secure SHA-256 hash comparison
+    async function handleAdminLogin() {
+        const passVal = passcodeFileInput.value.trim();
+        const hashedInput = await sha256(passVal);
+        if (hashedInput === "3c01c0c324eb29ef2433e38711e64906f3640b615967ed4ad1f6a1ad600e12f6") {
+            errLoginEl.style.display = 'none';
+            sessionStorage.setItem('lr_admin_logged_in', 'true');
+            adminPanel.classList.add('logged-in');
+            refreshAdminData();
+        } else {
+            errLoginEl.style.display = 'block';
+            passcodeFileInput.value = '';
+            gsap.fromTo(passcodeFileInput, { x: -6 }, { x: 0, duration: 0.4, clearProps: "x", ease: "bounce.out" });
+        }
+    }
+
+    loginBtn.addEventListener('click', handleAdminLogin);
+    passcodeFileInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') handleAdminLogin();
+    });
+
+    // Tab Switching
+    tabLeadsBtn.addEventListener('click', () => {
+        tabLeadsBtn.classList.add('active');
+        tabNewsBtn.classList.remove('active');
+        leadsTable.style.display = 'table';
+        newsTable.style.display = 'none';
+    });
+
+    tabNewsBtn.addEventListener('click', () => {
+        tabNewsBtn.classList.add('active');
+        tabLeadsBtn.classList.remove('active');
+        leadsTable.style.display = 'none';
+        newsTable.style.display = 'table';
+    });
+
+    // Database rendering
+    function refreshAdminData() {
+        const leads = JSON.parse(localStorage.getItem('lr_leads') || '[]');
+        const subscribers = JSON.parse(localStorage.getItem('lr_subscribers') || '[]');
+        
+        // Stats
+        document.getElementById('stat-total-leads').innerText = leads.length;
+        document.getElementById('stat-pending-leads').innerText = leads.filter(l => l.status === 'pending').length;
+        document.getElementById('stat-newsletter-subs').innerText = subscribers.length;
+
+        renderLeads(leads);
+        renderNewsletters(subscribers);
+    }
+
+    function renderLeads(leads) {
+        const tbody = document.getElementById('admin-leads-tbody');
+        tbody.innerHTML = '';
+        
+        const filterText = searchInput.value.toLowerCase().trim();
+        const filteredLeads = leads.filter(l => 
+            l.name.toLowerCase().includes(filterText) ||
+            l.phone.toLowerCase().includes(filterText) ||
+            l.concern.toLowerCase().includes(filterText) ||
+            l.id.toLowerCase().includes(filterText)
+        );
+
+        if (filteredLeads.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="7" class="admin-empty-state">No consultation leads found.</td></tr>`;
+            return;
+        }
+
+        // Render rows (newest first)
+        filteredLeads.reverse().forEach(lead => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td><strong>${lead.id}</strong></td>
+                <td>${lead.name}</td>
+                <td><a href="tel:${lead.phone}" style="color:var(--color-primary-light);text-decoration:none;">${lead.phone}</a></td>
+                <td style="text-transform: capitalize;">${lead.concern}</td>
+                <td>${lead.date} <br><small style="color:var(--color-text-muted);font-size:0.75rem;">at ${lead.timestamp.split(', ')[1] || lead.timestamp}</small></td>
+                <td>
+                    <span class="status-badge status-${lead.status}">${lead.status}</span>
+                </td>
+                <td>
+                    <button class="btn-table-action btn-toggle-status" data-id="${lead.id}">
+                        ${lead.status === 'pending' ? 'Mark Contacted' : 'Mark Pending'}
+                    </button>
+                    <button class="btn-table-action btn-delete-lead" data-id="${lead.id}">Delete</button>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+
+        // Attach event listeners to table buttons
+        tbody.querySelectorAll('.btn-toggle-status').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const id = e.target.getAttribute('data-id');
+                toggleLeadStatus(id);
+            });
+        });
+
+        tbody.querySelectorAll('.btn-delete-lead').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const id = e.target.getAttribute('data-id');
+                if (confirm(`Delete lead ${id}?`)) {
+                    deleteLead(id);
+                }
+            });
+        });
+    }
+
+    function renderNewsletters(subscribers) {
+        const tbody = document.getElementById('admin-news-tbody');
+        tbody.innerHTML = '';
+
+        const filterText = searchInput.value.toLowerCase().trim();
+        const filteredSubs = subscribers.filter(s => s.email.toLowerCase().includes(filterText));
+
+        if (filteredSubs.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="3" class="admin-empty-state">No newsletter subscriptions found.</td></tr>`;
+            return;
+        }
+
+        filteredSubs.reverse().forEach(sub => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${sub.email}</td>
+                <td>${sub.timestamp}</td>
+                <td>
+                    <button class="btn-table-action btn-delete-lead btn-delete-sub" data-email="${sub.email}">Unsubscribe</button>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+
+        tbody.querySelectorAll('.btn-delete-sub').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const email = e.target.getAttribute('data-email');
+                if (confirm(`Delete subscription for ${email}?`)) {
+                    deleteSubscriber(email);
+                }
+            });
+        });
+    }
+
+    // Lead operations
+    function toggleLeadStatus(id) {
+        let leads = JSON.parse(localStorage.getItem('lr_leads') || '[]');
+        leads = leads.map(lead => {
+            if (lead.id === id) {
+                lead.status = (lead.status === 'pending' ? 'contacted' : 'pending');
+            }
+            return lead;
+        });
+        localStorage.setItem('lr_leads', JSON.stringify(leads));
+        refreshAdminData();
+    }
+
+    function deleteLead(id) {
+        let leads = JSON.parse(localStorage.getItem('lr_leads') || '[]');
+        leads = leads.filter(lead => lead.id !== id);
+        localStorage.setItem('lr_leads', JSON.stringify(leads));
+        refreshAdminData();
+    }
+
+    function deleteSubscriber(email) {
+        let subscribers = JSON.parse(localStorage.getItem('lr_subscribers') || '[]');
+        subscribers = subscribers.filter(sub => sub.email !== email);
+        localStorage.setItem('lr_subscribers', JSON.stringify(subscribers));
+        refreshAdminData();
+    }
+
+    // Search filter trigger
+    searchInput.addEventListener('input', () => {
+        refreshAdminData();
+    });
+
+    // Reset database
+    resetBtn.addEventListener('click', () => {
+        if (confirm("WARNING: Are you sure you want to completely erase the leads and newsletter subscribers database? This action is permanent!")) {
+            localStorage.removeItem('lr_leads');
+            localStorage.removeItem('lr_subscribers');
+            refreshAdminData();
+            alert("Database successfully wiped.");
+        }
+    });
+
+    // CSV Exports
+    function exportToCSV(filename, rows) {
+        if (rows.length === 0) {
+            alert("No data available to export.");
+            return;
+        }
+        
+        const processRow = function (row) {
+            let finalVal = '';
+            for (let j = 0; j < row.length; j++) {
+                let innerValue = row[j] === null ? '' : row[j].toString();
+                if (row[j] instanceof Date) {
+                    innerValue = row[j].toLocaleString();
+                }
+                let result = innerValue.replace(/"/g, '""');
+                if (result.search(/("|,|\n)/g) >= 0)
+                    result = '"' + result + '"';
+                if (j > 0)
+                    finalVal += ',';
+                finalVal += result;
+            }
+            return finalVal + '\n';
+        };
+
+        let csvFile = '';
+        for (let i = 0; i < rows.length; i++) {
+            csvFile += processRow(rows[i]);
+        }
+
+        const blob = new Blob([csvFile], { type: 'text/csv;charset=utf-8;' });
+        if (navigator.msSaveBlob) { // IE 10+
+            navigator.msSaveBlob(blob, filename);
+        } else {
+            const link = document.createElement("a");
+            if (link.download !== undefined) {
+                const url = URL.createObjectURL(blob);
+                link.setAttribute("href", url);
+                link.setAttribute("download", filename);
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        }
+    }
+
+    exportLeadsBtn.addEventListener('click', () => {
+        const leads = JSON.parse(localStorage.getItem('lr_leads') || '[]');
+        const headers = ["Lead ID", "Patient Name", "WhatsApp Number", "Concern", "Preferred Date", "Sub Date", "Status"];
+        const rows = leads.map(l => [l.id, l.name, l.phone, l.concern, l.date, l.timestamp, l.status]);
+        rows.unshift(headers);
+        exportToCSV("LifeRoot_Consultation_Leads.csv", rows);
+    });
+
+    exportNewsBtn.addEventListener('click', () => {
+        const subs = JSON.parse(localStorage.getItem('lr_subscribers') || '[]');
+        const headers = ["Subscriber Email", "Subscribed Timestamp"];
+        const rows = subs.map(s => [s.email, s.timestamp]);
+        rows.unshift(headers);
+        exportToCSV("LifeRoot_Newsletter_Subscribers.csv", rows);
+    });
+
+    // Global Anti-Crash Protection
+    window.addEventListener('error', (event) => {
+        console.warn("Recovered from unhandled runtime error to prevent app crash:", event.error);
+        event.preventDefault(); // Suppress crash display
     });
 });

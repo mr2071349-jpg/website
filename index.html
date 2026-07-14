@@ -2,28 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'self' https://www.google.com;">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- Clickjacking Protection (Frame-Busting) -->
+    <style id="antiClickjack">body{display:none !important;}</style>
+    <script type="text/javascript">
+        if (self === top) {
+            var antiClickjack = document.getElementById("antiClickjack");
+            antiClickjack.parentNode.removeChild(antiClickjack);
+        } else {
+            top.location = self.location;
+        }
+    </script>
+    
     <!-- Primary SEO Meta Tags -->
-    <title>VedaVital Ayurveda | India's Premier Men's Wellness &amp; Sexual Health Clinic</title>
-    <meta name="description" content="Consult India's top sexologist at VedaVital Ayurveda. Safe, confidential, and 100% authentic Ayurvedic treatments for strength, stamina, and male wellness. Book a consultation today.">
-    <meta name="keywords" content="VedaVital, Ayurveda, Men's Wellness, Sexologist Clinic India, Ayurvedic Treatment, Stamina Booster, Performance Anxiety, Safe Sexual Health Consultation">
-    <meta name="author" content="VedaVital Ayurveda">
-    <link rel="canonical" href="https://vedavitalayurveda.in/">
+    <title>Life Root Ayurveda | India's Premier Men's Wellness &amp; Sexual Health Clinic</title>
+    <meta name="description" content="Consult India's top sexologist at Life Root Ayurveda. Safe, confidential, and 100% authentic Ayurvedic treatments for strength, stamina, and male wellness. Book a consultation today.">
+    <meta name="keywords" content="Life Root, Ayurveda, Men's Wellness, Sexologist Clinic India, Ayurvedic Treatment, Stamina Booster, Performance Anxiety, Safe Sexual Health Consultation">
+    <meta name="author" content="Life Root Ayurveda">
+    <link rel="canonical" href="https://liferootayurveda.in/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://vedavitalayurveda.in/">
-    <meta property="og:title" content="VedaVital Ayurveda | India's Premier Men's Wellness &amp; Sexual Health Clinic">
+    <meta property="og:url" content="https://liferootayurveda.in/">
+    <meta property="og:title" content="Life Root Ayurveda | India's Premier Men's Wellness &amp; Sexual Health Clinic">
     <meta property="og:description" content="Experience authentic Ayurvedic treatments for men's wellness. Confidential, scientific, and 100% natural therapies tailored by experts.">
-    <meta property="og:image" content="https://vedavitalayurveda.in/images/og-share.jpg">
+    <meta property="og:image" content="https://liferootayurveda.in/images/og-share.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://vedavitalayurveda.in/">
-    <meta property="twitter:title" content="VedaVital Ayurveda | India's Premier Men's Wellness &amp; Sexual Health Clinic">
+    <meta property="twitter:url" content="https://liferootayurveda.in/">
+    <meta property="twitter:title" content="Life Root Ayurveda | India's Premier Men's Wellness &amp; Sexual Health Clinic">
     <meta property="twitter:description" content="Experience authentic Ayurvedic treatments for men's wellness. Confidential, scientific, and 100% natural therapies tailored by experts.">
-    <meta property="twitter:image" content="https://vedavitalayurveda.in/images/og-share.jpg">
+    <meta property="twitter:image" content="https://liferootayurveda.in/images/og-share.jpg">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,12 +53,12 @@
     {
       "@context": "https://schema.org",
       "@type": "MedicalBusiness",
-      "name": "VedaVital Ayurveda",
-      "alternateName": "VedaVital Ayurveda Clinic",
-      "image": "https://vedavitalayurveda.in/images/og-share.jpg",
-      "@id": "https://vedavitalayurveda.in/#clinic",
-      "url": "https://vedavitalayurveda.in/",
-      "telephone": "+919205274685",
+      "name": "Life Root Ayurveda",
+      "alternateName": "Life Root Ayurveda Clinic",
+      "image": "https://liferootayurveda.in/images/og-share.jpg",
+      "@id": "https://liferootayurveda.in/#clinic",
+      "url": "https://liferootayurveda.in/",
+      "telephone": "+916387742417",
       "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
@@ -89,7 +101,7 @@
     <!-- Cinematic Preloader Overlay Screen -->
     <div id="loader" class="loader-overlay-screen" aria-hidden="true">
         <div class="loader-content">
-            <h2 class="loader-logo-title">VedaVital</h2>
+            <h2 class="loader-logo-title">Life Root</h2>
             <div class="loader-logo-subtitle">Ayurveda</div>
             <div class="loader-progress-wrapper">
                 <div class="loader-progress-track">
@@ -119,21 +131,16 @@
                 <span>India's Leading Men's Wellness &amp; Sexual Health Centre</span>
             </div>
             <div class="announcement-right">
-                <a href="tel:+919205274685" class="contact-link" aria-label="Call Emergency Support: +91 9205274685">
+                <a href="tel:+916387742417" class="contact-link" aria-label="Call Emergency Support: +91 9205274685">
                     <svg class="icon-inline" viewBox="0 0 24 24"><path fill="currentColor" d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>
-                    <span>+91 92052 74685</span>
+                    <span>+91 63877 42417</span>
                 </a>
                 <span class="separator">|</span>
-                <a href="https://wa.me/919205274685" target="_blank" rel="noopener noreferrer" class="contact-link whatsapp-link-text" aria-label="Chat on WhatsApp">
+                <a href="https://wa.me/916387742417" target="_blank" rel="noopener noreferrer" class="contact-link whatsapp-link-text" aria-label="Chat on WhatsApp">
                     <svg class="icon-inline" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.47 16.86L2.05 22L7.3 20.63C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.9C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.02L7.55 18.84L4.41 19.66L5.25 16.59L5.05 16.27C4.24 14.99 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.03 8.5 7.03 9.73C7.03 10.97 7.93 12.16 8.05 12.33C8.18 12.5 9.82 15.03 12.33 16.12C12.93 16.38 13.39 16.52 13.75 16.64C14.36 16.83 14.91 16.8 15.35 16.74C15.84 16.67 16.86 16.12 17.07 15.53C17.28 14.94 17.28 14.44 17.22 14.33C17.15 14.22 17 14.16 16.79 14.05L15.42 13.38C15.26 13.3 15.1 13.26 14.94 13.5C14.78 13.74 14.32 14.28 14.18 14.44C14.05 14.61 13.91 14.63 13.7 14.52C13.49 14.41 12.8 14.19 11.97 13.45C11.33 12.88 10.9 12.17 10.77 11.95C10.65 11.74 10.76 11.62 10.87 11.52C10.97 11.42 11.1 11.25 11.21 11.11C11.31 10.97 11.35 10.87 11.42 10.72C11.48 10.58 11.45 10.45 11.4 10.35C11.35 10.25 10.9 9.15 10.71 8.69C10.53 8.24 10.34 8.3 10.2 8.3C10.07 8.3 9.91 8.3 9.76 8.3C9.6 8.3 9.35 8.36 9.13 8.6C8.9 8.84 8.53 9.21 8.53 10.03C8.53 10.85 9.13 11.64 9.21 11.75" /></svg>
                     <span>Chat Support</span>
                 </a>
-                <span class="separator">|</span>
-                <div class="social-icons" aria-label="Social Media Connections">
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg class="icon-social" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A9.999 9.999 0 0,0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg></a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg class="icon-social" viewBox="0 0 24 24"><path fill="currentColor" d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4A3.6,3.6 0 0,0 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6A3.6,3.6 0 0,0 16.4,4H7.6M17.25,5.5A1.25,1.25 0 1,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/></svg></a>
-                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="Youtube"><svg class="icon-social" viewBox="0 0 24 24"><path fill="currentColor" d="M10,15L15.19,12L10,9V15M21.56,7.11C21.72,7.72 21.89,8.87 21.89,12C21.89,15.13 21.72,16.28 21.56,16.89C21.38,17.59 20.84,18.12 20.14,18.3C19.53,18.47 18.06,18.67 15,18.67C11.94,18.67 10.47,18.47 9.86,18.3C9.16,18.12 8.62,17.59 8.44,16.89C8.28,16.28 8.11,15.13 8.11,12C8.11,8.87 8.28,7.72 8.44,7.11C8.62,6.41 9.16,5.88 9.86,5.7C10.47,5.53 11.94,5.33 15,5.33C18.06,5.33 19.53,5.53 20.14,5.7C20.84,5.88 21.38,6.41 21.56,7.11M24,12C24,12 24,12 24,12Z"/></svg></a>
-                </div>
+
                 <span class="separator">|</span>
                 <div class="lang-selector" aria-label="Language Selector">
                     <select aria-label="Select Language">
@@ -149,7 +156,7 @@
     <header class="main-navbar" role="banner">
         <div class="container container-flex">
             <!-- Brand Logo & Identity -->
-            <a href="#" class="brand-logo" aria-label="VedaVital Ayurveda Home">
+            <a href="#" class="brand-logo" aria-label="Life Root Ayurveda Home">
                 <div class="logo-symbol-wrapper">
                     <!-- Premium Gold/Green Emblem Tree Vector SVG -->
                     <svg class="logo-symbol" viewBox="0 0 100 100">
@@ -165,7 +172,7 @@
                     </svg>
                 </div>
                 <div class="logo-text">
-                    <span class="logo-title">VedaVital</span>
+                    <span class="logo-title">Life Root</span>
                     <span class="logo-subtitle">Ayurveda</span>
                 </div>
             </a>
@@ -268,7 +275,7 @@
                             <span>Book Consultation</span>
                             <svg class="icon-btn-arrow" viewBox="0 0 24 24"><path fill="currentColor" d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg>
                         </button>
-                        <a href="tel:+919205274685" class="btn btn-outline" aria-label="Call clinic directly">
+                        <a href="tel:+916387742417" class="btn btn-outline" aria-label="Call clinic directly">
                             <svg class="icon-inline" viewBox="0 0 24 24"><path fill="currentColor" d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>
                             <span>Call Now</span>
                         </a>
@@ -474,7 +481,7 @@
             <div class="container">
                 <div class="section-header reveal-on-scroll">
                     <span class="section-subtitle">Our Promise</span>
-                    <h2 class="section-title">The VedaVital Difference</h2>
+                    <h2 class="section-title">The Life Root Difference</h2>
                     <p class="section-desc">Merging traditional Vedic science with modern validation standards. How we curate your pathway to recovery.</p>
                 </div>
 
@@ -646,7 +653,7 @@
                                     <span class="rating-val">5.0</span>
                                 </div>
                                 <p class="testimonial-text">
-                                    "I suffered from extreme fatigue and performance anxiety for 3 years. After undergoing VedaVital's 3-month personalized treatment, my energy levels and confidence have improved dramatically. The consultation was 100% private."
+                                    "I suffered from extreme fatigue and performance anxiety for 3 years. After undergoing Life Root's 3-month personalized treatment, my energy levels and confidence have improved dramatically. The consultation was 100% private."
                                 </p>
                                 <div class="patient-info">
                                     <div class="patient-avatar">A</div>
@@ -861,7 +868,7 @@
                                 </button>
                                 <div class="accordion-body" id="faq-ans-2" aria-hidden="true">
                                     <div class="accordion-content">
-                                        No, absolutely not. All VedaVital formulations undergo rigorous quality control. They are 100% natural, herbal, and certified under AYUSH guidelines and GMP directives. We check our batches periodically via third-party chemical laboratory analyses to guarantee they are completely free from heavy metals, synthetic chemicals, or steroids.
+                                        No, absolutely not. All Life Root formulations undergo rigorous quality control. They are 100% natural, herbal, and certified under AYUSH guidelines and GMP directives. We check our batches periodically via third-party chemical laboratory analyses to guarantee they are completely free from heavy metals, synthetic chemicals, or steroids.
                                     </div>
                                 </div>
                             </div>
@@ -933,7 +940,7 @@
                                 <div class="detail-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg></div>
                                 <div class="detail-text">
                                     <h4>Phone / Hotline</h4>
-                                    <p>+91 92052 74685 (General Helpline)<br>+91 92052 74686 (WhatsApp Direct)</p>
+                                    <p>+91 63877 42417 (General Helpline)<br>+91 63877 42417 (WhatsApp Direct)</p>
                                 </div>
                             </div>
                             <div class="contact-detail-item">
@@ -943,12 +950,19 @@
                                     <p>Monday - Sunday: 09:00 AM - 09:00 PM (IST)</p>
                                 </div>
                             </div>
+                            <div class="contact-detail-item">
+                                <div class="detail-icon"><svg viewBox="0 0 24 24" style="width:24px;height:24px;"><path fill="currentColor" d="M20,4H4C2.9,4 2,4.9 2,6V18C2,19.1 2.9,20 4,20H20C21.1,20 22,19.1 22,18V6C22,4.9 21.1,4 20,4M20,18H4V8L12,13L20,8V18M20,6L12,11L4,6H20Z"/></svg></div>
+                                <div class="detail-text">
+                                    <h4>Email Support</h4>
+                                    <p><a href="mailto:liferootayurveda1@gmail.com" class="contact-link-email" style="color:inherit;text-decoration:none;">liferootayurveda1@gmail.com</a></p>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Embedded Interactive Map -->
                         <div class="map-embed-wrapper">
                             <iframe 
-                                title="VedaVital Clinic Map Location" 
+                                title="Life Root Clinic Map Location" 
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1m3!1d3501.9996969566373!2d77.2167213!3d28.6299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd37e5555555%3A0x7d6f51dbad57f12a!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi%20110001!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
                                 width="100%" 
                                 height="200" 
@@ -995,6 +1009,16 @@
                                     <span class="error-msg" id="err-direct-date">Please select a valid date</span>
                                 </div>
 
+                                <!-- Security Honeypot (Invisible to users, stops bots) -->
+                                <input type="text" name="website_url" class="honeypot-field" style="display:none !important;" tabindex="-1" autocomplete="off">
+
+                                <!-- Security Math Captcha -->
+                                <div class="form-group captcha-group">
+                                    <label for="direct-captcha">Security Verification: <span class="captcha-question" id="direct-captcha-quest">? + ?</span></label>
+                                    <input type="text" id="direct-captcha" name="captcha" required placeholder="Verify you are human">
+                                    <span class="error-msg" id="err-direct-captcha">Incorrect captcha answer</span>
+                                </div>
+
                                 <button type="submit" class="btn btn-primary w-full btn-form-submit">
                                     <span class="submit-txt">Book Free Call Now</span>
                                     <span class="loader-spinner" aria-hidden="true"></span>
@@ -1026,17 +1050,14 @@
                         <path fill="#d4af37" d="M50,18 C50,18 43,30 43,40 C43,55 57,55 57,40 C57,30 50,18 50,18 Z M50,45 C50,45 40,55 33,65 C30,71 35,77 42,75 C49,73 50,60 50,60 C50,60 51,73 58,75 C65,77 70,71 67,65 C60,55 50,45 50,45 Z" />
                     </svg>
                     <div class="logo-text">
-                        <span class="logo-title text-light">VedaVital</span>
+                        <span class="logo-title text-light">Life Root</span>
                         <span class="logo-subtitle text-light">Ayurveda</span>
                     </div>
                 </a>
                 <p class="footer-desc">
                     India's leading luxury health consultation platform providing certified natural Ayurvedic solutions, clinical precision, and 100% confidentiality.
                 </p>
-                <div class="footer-socials">
-                    <a href="https://facebook.com" aria-label="Facebook Icon link"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A9.999 9.999 0 0,0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg></a>
-                    <a href="https://instagram.com" aria-label="Instagram Icon link"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4A3.6,3.6 0 0,0 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6A3.6,3.6 0 0,0 16.4,4H7.6M17.25,5.5A1.25,1.25 0 1,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/></svg></a>
-                </div>
+
             </div>
             
             <!-- Col 2: Useful Links -->
@@ -1071,7 +1092,7 @@
 
         <div class="footer-bottom">
             <div class="container footer-bottom-flex">
-                <p class="copyright-txt">&copy; 2026 VedaVital Ayurveda. All Rights Reserved.</p>
+                <p class="copyright-txt">&copy; 2026 Life Root Ayurveda. All Rights Reserved.</p>
                 <ul class="footer-policy-links">
                     <li><a href="#privacy">Privacy Policy</a></li>
                     <li><a href="#terms">Terms &amp; Conditions</a></li>
@@ -1125,6 +1146,16 @@
                     <span class="error-msg" id="err-modal-date">Please select a valid future date</span>
                 </div>
 
+                <!-- Security Honeypot (Invisible to users, stops bots) -->
+                <input type="text" name="website_url" class="honeypot-field" style="display:none !important;" tabindex="-1" autocomplete="off">
+
+                <!-- Security Math Captcha -->
+                <div class="form-group captcha-group">
+                    <label for="modal-captcha">Security Verification: <span class="captcha-question" id="modal-captcha-quest">? + ?</span></label>
+                    <input type="text" id="modal-captcha" name="captcha" required placeholder="Verify you are human">
+                     <span class="error-msg" id="err-modal-captcha">Incorrect captcha answer</span>
+                </div>
+
                 <button type="submit" class="btn btn-primary w-full btn-form-submit">
                     <span class="submit-txt">Confirm Free Appointment</span>
                     <span class="loader-spinner" aria-hidden="true"></span>
@@ -1144,12 +1175,12 @@
     <!-- Interactive Floating Actions (Bottom Corners) -->
     <div class="floating-action-group" role="complementary" aria-label="Quick Action Buttons">
         <!-- Floating WhatsApp -->
-        <a href="https://wa.me/919205274685" target="_blank" rel="noopener noreferrer" class="floating-btn whatsapp-btn" aria-label="Direct WhatsApp Chat">
+        <a href="https://wa.me/916387742417" target="_blank" rel="noopener noreferrer" class="floating-btn whatsapp-btn" aria-label="Direct WhatsApp Chat">
             <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.47 16.86L2.05 22L7.3 20.63C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.9C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.02L7.55 18.84L4.41 19.66L5.25 16.59L5.05 16.27C4.24 14.99 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.03 8.5 7.03 9.73C7.03 10.97 7.93 12.16 8.05 12.33C8.18 12.5 9.82 15.03 12.33 16.12C12.93 16.38 13.39 16.52 13.75 16.64C14.36 16.83 14.91 16.8 15.35 16.74C15.84 16.67 16.86 16.12 17.07 15.53C17.28 14.94 17.28 14.44 17.22 14.33C17.15 14.22 17 14.16 16.79 14.05L15.42 13.38C15.26 13.3 15.1 13.26 14.94 13.5C14.78 13.74 14.32 14.28 14.18 14.44C14.05 14.61 13.91 14.63 13.7 14.52C13.49 14.41 12.8 14.19 11.97 13.45C11.33 12.88 10.9 12.17 10.77 11.95C10.65 11.74 10.76 11.62 10.87 11.52C10.97 11.42 11.1 11.25 11.21 11.11C11.31 10.97 11.35 10.87 11.42 10.72C11.48 10.58 11.45 10.45 11.4 10.35C11.35 10.25 10.9 9.15 10.71 8.69C10.53 8.24 10.34 8.3 10.2 8.3C10.07 8.3 9.91 8.3 9.76 8.3C9.6 8.3 9.35 8.36 9.13 8.6C8.9 8.84 8.53 9.21 8.53 10.03C8.53 10.85 9.13 11.64 9.21 11.75" /></svg>
         </a>
         
         <!-- Floating Emergency Phone Call -->
-        <a href="tel:+919205274685" class="floating-btn call-btn" aria-label="Direct Phone Consultation Call">
+        <a href="tel:+916387742417" class="floating-btn call-btn" aria-label="Direct Phone Consultation Call">
             <svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>
         </a>
 
