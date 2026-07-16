@@ -1174,7 +1174,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             // Connected page anchor clicks to Lenis smooth scroll & modals
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            document.querySelectorAll('a[href^="#"]:not(.footer-logo)').forEach(anchor => {
                 this.addListener(anchor, 'click', function(e) {
                     const targetId = this.getAttribute('href');
                     if (targetId === '#') {
@@ -1598,13 +1598,44 @@ document.addEventListener('DOMContentLoaded', () => {
             // Trigger on clicking Footer Logo 5 times
             const footerLogo = document.querySelector('.footer-logo');
             if (footerLogo) {
-                let logoClicks = 0, logoTimer;
+                let logoClicks = 0;
+                let lastClickTime = 0;
+                let logoTimer = null;
+                const CLICK_TIMEOUT = 2000; // Configurable timeout: 2 seconds window between clicks
+                const MIN_CLICK_INTERVAL = 200; // Ignore clicks/taps faster than 200ms (accidental double-firing/bounces)
+
+                // Prevent mobile double-tap zoom delay to ensure rapid taps register immediately
+                footerLogo.style.touchAction = 'manipulation';
+
                 this.addListener(footerLogo, 'click', (e) => {
                     e.preventDefault();
+                    e.stopPropagation();
+
+                    // If admin panel is already open, ignore clicks
+                    if (adminPanel && adminPanel.classList.contains('active')) {
+                        return;
+                    }
+
+                    const now = Date.now();
+                    
+                    // Ignore accidental double-events / rapid double-taps
+                    if (now - lastClickTime < MIN_CLICK_INTERVAL) {
+                        return;
+                    }
+                    
+                    lastClickTime = now;
                     logoClicks++;
+                    
                     clearTimeout(logoTimer);
-                    logoTimer = setTimeout(() => logoClicks = 0, 3000);
-                    if (logoClicks >= 5) { logoClicks = 0; openAdminPanel(); }
+                    
+                    if (logoClicks >= 5) {
+                        logoClicks = 0;
+                        openAdminPanel();
+                    } else {
+                        logoTimer = setTimeout(() => {
+                            logoClicks = 0;
+                        }, CLICK_TIMEOUT);
+                    }
                 });
             }
 
