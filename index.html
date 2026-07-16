@@ -117,46 +117,42 @@
         <div id="scroll-progress-bar"></div>
     </div>
 
-    <!-- Mouse Cursor Glow Effect -->
-    <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+    <!-- GOD MODE CURSOR EXPERIENCE SYSTEM -->
+    <div id="god-cursor" class="god-cursor" aria-hidden="true">
+        <!-- Ambient shadow layer -->
+        <div class="gc-shadow"></div>
+        <!-- Depth ring layer -->
+        <div class="gc-depth-ring"></div>
+        <!-- Glass surface layer -->
+        <div class="gc-glass">
+            <div class="gc-noise"></div>
+            <div class="gc-reflection"></div>
+            <div class="gc-highlight"></div>
+        </div>
+        <!-- Core luminous center -->
+        <div class="gc-core"></div>
+        <!-- Ambient glow halo -->
+        <div class="gc-glow"></div>
+        <!-- Contextual text label -->
+        <div class="gc-label">
+            <span class="gc-label-text"></span>
+        </div>
+        <!-- Click ripple container -->
+        <div class="gc-ripple-container"></div>
+    </div>
+    <!-- Cursor light source for card illumination -->
+    <div id="gc-light-source" class="gc-light-source" aria-hidden="true"></div>
 
     <!-- Skip to main content link for screen readers -->
     <a href="#main-content" class="skip-to-content">Skip to Main Content</a>
 
-    <!-- 1. Announcement Bar -->
-    <div class="announcement-bar" role="complementary" aria-label="Quick Contacts">
-        <div class="container container-flex">
-            <div class="announcement-left">
-                <span class="pulse-dot"></span>
-                <span>India's Leading Men's Wellness &amp; Sexual Health Centre</span>
-            </div>
-            <div class="announcement-right">
-                <a href="tel:+916387742417" class="contact-link" aria-label="Call Emergency Support: +91 9205274685">
-                    <svg class="icon-inline" viewBox="0 0 24 24"><path fill="currentColor" d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>
-                    <span>+91 63877 42417</span>
-                </a>
-                <span class="separator">|</span>
-                <a href="https://wa.me/916387742417" target="_blank" rel="noopener noreferrer" class="contact-link whatsapp-link-text" aria-label="Chat on WhatsApp">
-                    <svg class="icon-inline" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.47 16.86L2.05 22L7.3 20.63C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.9C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.02L7.55 18.84L4.41 19.66L5.25 16.59L5.05 16.27C4.24 14.99 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.03 8.5 7.03 9.73C7.03 10.97 7.93 12.16 8.05 12.33C8.18 12.5 9.82 15.03 12.33 16.12C12.93 16.38 13.39 16.52 13.75 16.64C14.36 16.83 14.91 16.8 15.35 16.74C15.84 16.67 16.86 16.12 17.07 15.53C17.28 14.94 17.28 14.44 17.22 14.33C17.15 14.22 17 14.16 16.79 14.05L15.42 13.38C15.26 13.3 15.1 13.26 14.94 13.5C14.78 13.74 14.32 14.28 14.18 14.44C14.05 14.61 13.91 14.63 13.7 14.52C13.49 14.41 12.8 14.19 11.97 13.45C11.33 12.88 10.9 12.17 10.77 11.95C10.65 11.74 10.76 11.62 10.87 11.52C10.97 11.42 11.1 11.25 11.21 11.11C11.31 10.97 11.35 10.87 11.42 10.72C11.48 10.58 11.45 10.45 11.4 10.35C11.35 10.25 10.9 9.15 10.71 8.69C10.53 8.24 10.34 8.3 10.2 8.3C10.07 8.3 9.91 8.3 9.76 8.3C9.6 8.3 9.35 8.36 9.13 8.6C8.9 8.84 8.53 9.21 8.53 10.03C8.53 10.85 9.13 11.64 9.21 11.75" /></svg>
-                    <span>Chat Support</span>
-                </a>
 
-                <span class="separator">|</span>
-                <div class="lang-selector" aria-label="Language Selector">
-                    <select aria-label="Select Language">
-                        <option value="en">EN</option>
-                        <option value="hi">HI</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- 2. Sticky Premium Navbar -->
     <header class="main-navbar" role="banner">
         <div class="container container-flex">
             <!-- Brand Logo & Identity -->
-            <a href="#" class="brand-logo" aria-label="Life Root Ayurveda Home">
+            <a href="#hero" class="brand-logo" aria-label="Life Root Ayurveda Home">
                 <div class="logo-symbol-wrapper">
                     <!-- Premium Gold/Green Emblem Tree Vector SVG -->
                     <svg class="logo-symbol" viewBox="0 0 100 100">
@@ -177,26 +173,24 @@
                 </div>
             </a>
 
-            <!-- Navigation Menu -->
-            <nav class="nav-menu" role="navigation" aria-label="Main Navigation Menu">
-                <ul class="nav-links">
-                    <li><a href="#hero" class="nav-link active">Home</a></li>
-                    <li><a href="#treatments" class="nav-link">Treatments</a></li>
-                    <li><a href="#why-choose-us" class="nav-link">Why Choose Us</a></li>
-                    <li><a href="#amenities" class="nav-link">Amenities</a></li>
-                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-                    <li><a href="#faq" class="nav-link">Remedies &amp; FAQ</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
+            <!-- Desktop Navigation Menu Links -->
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#treatments" class="nav-link">Treatments</a></li>
+                <li><a href="#why-choose-us" class="nav-link">Why Choose Us</a></li>
+                <li><a href="#amenities" class="nav-link">Amenities</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
 
-            <!-- Sticky CTA Button -->
+            <!-- Sticky CTA Button & Menu Toggle -->
             <div class="navbar-actions">
                 <button class="btn btn-primary btn-nav-cta open-modal-btn" aria-haspopup="dialog" aria-controls="appointment-modal">
                     <span>Book Appointment</span>
                     <svg class="icon-btn-arrow" viewBox="0 0 24 24"><path fill="currentColor" d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg>
                 </button>
-                <button class="mobile-menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobile-nav">
+                <button class="nav-menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="offcanvas-nav">
                     <span class="bar bar-1"></span>
                     <span class="bar bar-2"></span>
                     <span class="bar bar-3"></span>
@@ -205,24 +199,84 @@
         </div>
     </header>
 
-    <!-- Mobile Drawer Navigation -->
-    <div class="mobile-nav-drawer" id="mobile-nav" aria-hidden="true">
-        <nav class="mobile-drawer-menu" role="navigation" aria-label="Mobile Navigation Drawer">
-            <ul class="mobile-nav-links">
-                <li><a href="#hero" class="mobile-nav-link">Home</a></li>
-                <li><a href="#treatments" class="mobile-nav-link">Treatments</a></li>
-                <li><a href="#why-choose-us" class="mobile-nav-link">Why Choose Us</a></li>
-                <li><a href="#amenities" class="mobile-nav-link">Amenities</a></li>
-                <li><a href="#testimonials" class="mobile-nav-link">Testimonials</a></li>
-                <li><a href="#faq" class="mobile-nav-link">Remedies &amp; FAQ</a></li>
-                <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
-            </ul>
-            <div class="mobile-drawer-cta">
-                <button class="btn btn-primary open-modal-btn w-full" aria-haspopup="dialog" aria-controls="appointment-modal">
-                    <span>Book Appointment</span>
-                </button>
+    <!-- Immersive 3D Off-Canvas Navigation Overlay -->
+    <div class="offcanvas-nav-overlay" id="offcanvas-nav" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation Overlay">
+        <!-- Moss glass background with noise and shine -->
+        <div class="offcanvas-bg-glass"></div>
+        <div class="offcanvas-noise"></div>
+        <div class="offcanvas-shine"></div>
+        
+        <div class="offcanvas-container">
+            <!-- Left Side Panel: Editorial Links -->
+            <nav class="offcanvas-nav" role="navigation" aria-label="Off-Canvas Main Navigation">
+                <ul class="offcanvas-links">
+                    <li class="offcanvas-link-item" style="--item-index: 0;">
+                        <a href="#hero" class="offcanvas-link">
+                            <span class="offcanvas-num">01</span>
+                            <span class="offcanvas-text" data-text="Home">Home</span>
+                        </a>
+                    </li>
+                    <li class="offcanvas-link-item" style="--item-index: 1;">
+                        <a href="#treatments" class="offcanvas-link">
+                            <span class="offcanvas-num">02</span>
+                            <span class="offcanvas-text" data-text="Treatments">Treatments</span>
+                        </a>
+                    </li>
+                    <li class="offcanvas-link-item" style="--item-index: 2;">
+                        <a href="#why-choose-us" class="offcanvas-link">
+                            <span class="offcanvas-num">03</span>
+                            <span class="offcanvas-text" data-text="Why Choose Us">Why Choose Us</span>
+                        </a>
+                    </li>
+                    <li class="offcanvas-link-item" style="--item-index: 3;">
+                        <a href="#amenities" class="offcanvas-link">
+                            <span class="offcanvas-num">04</span>
+                            <span class="offcanvas-text" data-text="Amenities">Amenities</span>
+                        </a>
+                    </li>
+                    <li class="offcanvas-link-item" style="--item-index: 4;">
+                        <a href="#testimonials" class="offcanvas-link">
+                            <span class="offcanvas-num">05</span>
+                            <span class="offcanvas-text" data-text="Testimonials">Testimonials</span>
+                        </a>
+                    </li>
+                    <li class="offcanvas-link-item" style="--item-index: 5;">
+                        <a href="#faq" class="offcanvas-link">
+                            <span class="offcanvas-num">06</span>
+                            <span class="offcanvas-text" data-text="Remedies &amp; FAQ">Remedies &amp; FAQ</span>
+                        </a>
+                    </li>
+                    <li class="offcanvas-link-item" style="--item-index: 6;">
+                        <a href="#contact" class="offcanvas-link">
+                            <span class="offcanvas-num">07</span>
+                            <span class="offcanvas-text" data-text="Contact">Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Right Side Panel: Clinic Meta Information -->
+            <div class="offcanvas-meta-panel">
+                <div class="offcanvas-meta-section">
+                    <span class="offcanvas-meta-label">CLINIC HOURS</span>
+                    <p class="offcanvas-meta-value">Monday – Sunday<br>09:00 AM – 09:00 PM (IST)</p>
+                </div>
+                <div class="offcanvas-meta-section">
+                    <span class="offcanvas-meta-label">HOTLINE SUPPORT</span>
+                    <a href="tel:+916387742417" class="offcanvas-meta-link">+91 63877 42417</a>
+                    <a href="https://wa.me/916387742417" target="_blank" rel="noopener noreferrer" class="offcanvas-meta-link whatsapp-accent">WhatsApp Chat Support</a>
+                </div>
+                <div class="offcanvas-meta-section">
+                    <span class="offcanvas-meta-label">FACILITY LOCATION</span>
+                    <p class="offcanvas-meta-value">B-068, B Block, Sector 63,<br>Noida, Uttar Pradesh - 201309</p>
+                </div>
+                <div class="offcanvas-meta-actions">
+                    <button class="btn btn-primary open-modal-btn offcanvas-appointment-btn" aria-haspopup="dialog" aria-controls="appointment-modal">
+                        <span>Book Appointment</span>
+                    </button>
+                </div>
             </div>
-        </nav>
+        </div>
     </div>
 
     <!-- Main Content Area -->
@@ -241,16 +295,16 @@
             <div class="sanskrit-watermark-bg" aria-hidden="true">आयुर्वेद</div>
             
             <!-- Floating Decorative Leaves SVGs -->
-            <div class="floating-leaf leaf-1" aria-hidden="true">
+            <div class="floating-leaf leaf-1" aria-hidden="true" data-depth="0.4">
                 <svg viewBox="0 0 100 100" class="leaf-svg"><path fill="#1b4332" opacity="0.15" d="M10,80 Q50,70 60,30 Q40,60 10,80 Z M60,30 Q80,20 90,10 Q70,40 60,30 Z" /></svg>
             </div>
-            <div class="floating-leaf leaf-2" aria-hidden="true">
+            <div class="floating-leaf leaf-2" aria-hidden="true" data-depth="0.25">
                 <svg viewBox="0 0 100 100" class="leaf-svg"><path fill="#d4af37" opacity="0.12" d="M10,90 Q40,50 90,10 Q50,60 10,90 Z" /></svg>
             </div>
-            <div class="floating-leaf leaf-3" aria-hidden="true">
+            <div class="floating-leaf leaf-3" aria-hidden="true" data-depth="0.15">
                 <svg viewBox="0 0 100 100" class="leaf-svg"><path fill="#1b4332" opacity="0.1" d="M30,90 Q70,70 80,20 Q50,50 30,90 Z" /></svg>
             </div>
-
+ 
             <div class="container hero-grid">
                 <!-- Hero Textual Content -->
                 <div class="hero-content reveal-on-scroll slide-left-reveal">
@@ -258,17 +312,17 @@
                         <svg class="icon-inline accent-color" viewBox="0 0 24 24"><path fill="currentColor" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/></svg>
                         <span>India's Most Trusted Ayurvedic Sexologist Clinic</span>
                     </div>
-
+ 
                     <h1 class="hero-title">
                         Reclaim Your Vitality. <br>
                         <span class="text-gradient">Scientific Ayurveda</span> <br>
                         For Men's Wellness.
                     </h1>
-
+ 
                     <p class="hero-description">
                         Unlock peak performance, stamina, and confidence. Our customized, clinically validated Ayurvedic therapies treat root causes with 100% natural, certified formulations, assuring absolute privacy.
                     </p>
-
+ 
                     <!-- Luxury Hero Action Controls -->
                     <div class="hero-actions">
                         <button class="btn btn-primary open-modal-btn pulse-glow-btn" aria-haspopup="dialog" aria-controls="appointment-modal">
@@ -279,12 +333,8 @@
                             <svg class="icon-inline" viewBox="0 0 24 24"><path fill="currentColor" d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>
                             <span>Call Now</span>
                         </a>
-                        <button class="btn btn-text watch-video-btn" aria-label="Watch Introduction Video">
-                            <span class="video-play-symbol"><svg class="icon-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8,5.14V19.14L19,12.14L8,5.14Z"/></svg></span>
-                            <span>Watch Film</span>
-                        </button>
                     </div>
-
+ 
                     <!-- Micro Trust Badge Indicators -->
                     <div class="hero-trust-bar">
                         <div class="customer-avatars-group" aria-hidden="true">
@@ -299,89 +349,123 @@
                         </div>
                     </div>
                 </div>
-
+ 
                 <!-- Hero Interactive Image Container -->
                 <div class="hero-image-container reveal-on-scroll slide-right-reveal">
-                    <!-- Glassmorphic card layered around clinical details -->
-                    <div class="glass-float-card card-top-left" aria-hidden="true">
-                        <div class="glow-border-layer"></div>
-                        <div class="glass-card-inner">
-                            <span class="card-count">100%</span>
-                            <span class="card-txt">Natural &amp; Organic</span>
+                    <!-- Refined Mechanical Blueprint Annotations -->
+                    <div class="hero-annotation annotation-left" aria-hidden="true" data-depth="0.3">
+                        <div class="annotation-dot-pulse"></div>
+                        <div class="annotation-line-h"></div>
+                        <div class="annotation-content">
+                            <span class="anno-label">CERTIFICATION</span>
+                            <span class="anno-value">100% Organic Rasayanas</span>
                         </div>
                     </div>
-                    <div class="glass-float-card card-bottom-right" aria-hidden="true">
-                        <div class="glow-border-layer"></div>
-                        <div class="glass-card-inner">
-                            <span class="card-count">Confidential</span>
-                            <span class="card-txt">No Prescription Label</span>
+                    
+                    <div class="hero-annotation annotation-right" aria-hidden="true" data-depth="0.2">
+                        <div class="annotation-dot-pulse"></div>
+                        <div class="annotation-line-h"></div>
+                        <div class="annotation-content">
+                            <span class="anno-label">CONFIDENTIALITY</span>
+                            <span class="anno-value">Discreet Outer Labeling</span>
                         </div>
                     </div>
-
-                    <!-- Luxury Clinical Graphic (Doctor Portrait Image with Gold Outline) -->
-                    <div class="doctor-graphic-wrapper">
+ 
+                    <!-- Luxury Clinical Graphic (Doctor Portrait Image with Arch Frame) -->
+                    <div class="doctor-graphic-wrapper" data-depth="0.12">
                         <div class="circular-glow-bg"></div>
+                        <div class="doctor-frame-decor"></div>
+                        <div class="doctor-specular-glare"></div>
                         <img src="images/doctor.png" alt="Dr. A. K. Shastri (Chief Ayurvedic Specialist)" class="doctor-portrait-img">
                     </div>
                 </div>
             </div>
 
-            <!-- Scroll Indicator -->
-            <a href="#stats" class="scroll-indicator-arrow" aria-label="Scroll down to statistics">
-                <span class="indicator-mouse"><span class="indicator-wheel"></span></span>
-            </a>
+
         </section>
 
         <!-- 4. Animated Statistics -->
         <section id="stats" class="stats-section" aria-label="Key Clinic Metrics">
             <div class="container grid-stats">
                 <!-- Stat Item 1 -->
-                <div class="stat-card reveal-on-scroll">
-                    <div class="stat-icon-wrapper">
-                        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/></svg>
+                <div class="stat-card">
+                    <div class="stat-ambient-shadow"></div>
+                    <div class="stat-card-inner">
+                        <canvas class="stat-radial-canvas"></canvas>
+                        <div class="stat-specular-shine"></div>
+                        <div class="stat-icon-wrapper">
+                            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/></svg>
+                        </div>
+                        <div class="stat-number-wrap">
+                            <span class="stat-number" data-target="20000">0</span><span class="stat-plus">+</span>
+                        </div>
+                        <div class="stat-label">Happy Patients Cured</div>
                     </div>
-                    <div class="stat-number" data-target="20000">0</div>
-                    <div class="stat-plus">+</div>
-                    <div class="stat-label">Happy Patients Cured</div>
                 </div>
                 <!-- Stat Item 2 -->
-                <div class="stat-card reveal-on-scroll">
-                    <div class="stat-icon-wrapper">
-                        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,18.5C9.25,18.5 6.85,17.1 5.4,14.9C5.43,12.7 9.8,11.5 12,11.5C14.2,11.5 18.57,12.7 18.6,14.9C17.15,17.1 14.75,18.5 12,18.5Z"/></svg>
+                <div class="stat-card">
+                    <div class="stat-ambient-shadow"></div>
+                    <div class="stat-card-inner">
+                        <canvas class="stat-radial-canvas"></canvas>
+                        <div class="stat-specular-shine"></div>
+                        <div class="stat-icon-wrapper">
+                            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,18.5C9.25,18.5 6.85,17.1 5.4,14.9C5.43,12.7 9.8,11.5 12,11.5C14.2,11.5 18.57,12.7 18.6,14.9C17.15,17.1 14.75,18.5 12,18.5Z"/></svg>
+                        </div>
+                        <div class="stat-number-wrap">
+                            <span class="stat-number" data-target="7">0</span><span class="stat-plus">+</span>
+                        </div>
+                        <div class="stat-label">Years of Trust &amp; Expertise</div>
                     </div>
-                    <div class="stat-number" data-target="7">0</div>
-                    <div class="stat-plus">+</div>
-                    <div class="stat-label">Years of Trust &amp; Expertise</div>
                 </div>
                 <!-- Stat Item 3 -->
-                <div class="stat-card reveal-on-scroll">
-                    <div class="stat-icon-wrapper">
-                        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19,3H5C3.89,3 3,3.89 3,5V19C3,20.1 3.89,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.89 20.1,3 19,3M19,19H5V5H19V19M11,7H13V9H11V7M11,11H13V17H11V11Z"/></svg>
+                <div class="stat-card">
+                    <div class="stat-ambient-shadow"></div>
+                    <div class="stat-card-inner">
+                        <canvas class="stat-radial-canvas"></canvas>
+                        <div class="stat-specular-shine"></div>
+                        <div class="stat-icon-wrapper">
+                            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19,3H5C3.89,3 3,3.89 3,5V19C3,20.1 3.89,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.89 20.1,3 19,3M19,19H5V5H19V19M11,7H13V9H11V7M11,11H13V17H11V11Z"/></svg>
+                        </div>
+                        <div class="stat-number-wrap">
+                            <span class="stat-number" data-target="150">0</span><span class="stat-plus">+</span>
+                        </div>
+                        <div class="stat-label">Expert Formulations</div>
                     </div>
-                    <div class="stat-number" data-target="150">0</div>
-                    <div class="stat-plus">+</div>
-                    <div class="stat-label">Expert Formulations</div>
                 </div>
                 <!-- Stat Item 4 -->
-                <div class="stat-card reveal-on-scroll">
-                    <div class="stat-icon-wrapper">
-                        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.62L12 2L9.19 8.62L2 9.24L7.45 13.97L5.82 21L12 17.27Z"/></svg>
+                <div class="stat-card">
+                    <div class="stat-ambient-shadow"></div>
+                    <div class="stat-card-inner">
+                        <canvas class="stat-radial-canvas"></canvas>
+                        <div class="stat-specular-shine"></div>
+                        <div class="stat-icon-wrapper">
+                            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.62L12 2L9.19 8.62L2 9.24L7.45 13.97L5.82 21L12 17.27Z"/></svg>
+                        </div>
+                        <div class="stat-number-wrap">
+                            <span class="stat-number" data-target="4.7" data-decimal="true">0</span><span class="stat-plus">/5</span>
+                        </div>
+                        <div class="stat-label">Google Rating Score</div>
                     </div>
-                    <div class="stat-number" data-target="4.7" data-decimal="true">0</div>
-                    <div class="stat-plus">/5</div>
-                    <div class="stat-label">Google Rating Score</div>
                 </div>
                 <!-- Stat Item 5 -->
-                <div class="stat-card reveal-on-scroll">
-                    <div class="stat-icon-wrapper">
-                        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12,2C11.5,2 11,2.1 10.5,2.3L3,5.7V11C3,16.5 6.8,21.7 12,23C17.2,21.7 21,16.5 21,11V5.7L13.5,2.3C13,2.1 12.5,2 12,2M12,4L18,6.7V11C18,15.2 15.4,19.1 12,20.8V4Z"/></svg>
+                <div class="stat-card">
+                    <div class="stat-ambient-shadow"></div>
+                    <div class="stat-card-inner">
+                        <canvas class="stat-radial-canvas"></canvas>
+                        <div class="stat-specular-shine"></div>
+                        <div class="stat-icon-wrapper">
+                            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12,2C11.5,2 11,2.1 10.5,2.3L3,5.7V11C3,16.5 6.8,21.7 12,23C17.2,21.7 21,16.5 21,11V5.7L13.5,2.3C13,2.1 12.5,2 12,2M12,4L18,6.7V11C18,15.2 15.4,19.1 12,20.8V4Z"/></svg>
+                        </div>
+                        <div class="stat-number-wrap">
+                            <span class="stat-number" data-target="12">0</span><span class="stat-plus">+</span>
+                        </div>
+                        <div class="stat-label">National Awards Won</div>
                     </div>
-                    <div class="stat-number" data-target="12">0</div>
-                    <div class="stat-plus">+</div>
-                    <div class="stat-label">National Awards Won</div>
                 </div>
             </div>
         </section>
+
+
 
         <!-- 5. Treatments Section -->
         <section id="treatments" class="treatments-section">
@@ -394,82 +478,120 @@
 
                 <div class="grid-treatments">
                     <!-- Treatment Card 1: Strength -->
-                    <div class="treatment-card featured-card reveal-on-scroll">
-                        <div class="tilt-element">
+                    <div class="treatment-card featured-card">
+                        <div class="treatment-ambient-shadow"></div>
+                        <div class="treatment-card-inner">
+                            <canvas class="treatment-energy-canvas"></canvas>
+                            <div class="treatment-specular-shine"></div>
+                            
                             <div class="treatment-icon-box">
                                 <!-- Stamina/Strength Icon -->
                                 <svg viewBox="0 0 24 24"><path fill="currentColor" d="M21,18H19v-2h2V18M17,18H15v-2h2V18M13,18H11v-2h2V18M9,18H7v-2h2V18M5,18H3v-2h2V18M21,14H3V12c0-1.66,1.34-3,3-3h12c1.66,0,3,1.34,3,3V14M21,8H3V6c0-1.66,1.34-3,3-3h12c1.66,0,3,1.34,3,3V8Z"/></svg>
                             </div>
                             <h3 class="treatment-title">Strength &amp; Stamina</h3>
                             <p class="treatment-desc">Overcome physical fatigue and improve sustained cellular energy. Enhances cellular ATP generation and muscle tone using certified organic Shudh Shilajit and Ashwagandha.</p>
-                            <button class="btn btn-card open-modal-btn" aria-haspopup="dialog" aria-controls="appointment-modal">
-                                <span>Get Consultation</span>
-                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg>
-                            </button>
+                            
+                            <div class="magnetic-btn-wrap">
+                                <button class="btn btn-card magnetic-btn open-modal-btn" aria-haspopup="dialog" aria-controls="appointment-modal">
+                                    <span>Get Consultation</span>
+                                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
-
+ 
                     <!-- Treatment Card 2: Timing -->
-                    <div class="treatment-card reveal-on-scroll">
-                        <div class="tilt-element">
+                    <div class="treatment-card">
+                        <div class="treatment-ambient-shadow"></div>
+                        <div class="treatment-card-inner">
+                            <canvas class="treatment-energy-canvas"></canvas>
+                            <div class="treatment-specular-shine"></div>
+                            
                             <div class="treatment-icon-box">
                                 <!-- Timing Icon -->
                                 <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/></svg>
                             </div>
                             <h3 class="treatment-title">Timing Concerns (PE)</h3>
                             <p class="treatment-desc">Addresses hyper-sensitivity and performance timing concerns. Calm your nervous responses naturally using specialized neuro-soothing Ayurvedic herbs.</p>
-                            <button class="btn btn-card open-modal-btn" aria-haspopup="dialog" aria-controls="appointment-modal">
-                                <span>Get Consultation</span>
-                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg>
-                            </button>
+                            
+                            <div class="magnetic-btn-wrap">
+                                <button class="btn btn-card magnetic-btn open-modal-btn" aria-haspopup="dialog" aria-controls="appointment-modal">
+                                    <span>Get Consultation</span>
+                                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
-
+ 
                     <!-- Treatment Card 3: Performance -->
-                    <div class="treatment-card offset-card reveal-on-scroll">
-                        <div class="tilt-element">
+                    <div class="treatment-card offset-card">
+                        <div class="treatment-ambient-shadow"></div>
+                        <div class="treatment-card-inner">
+                            <canvas class="treatment-energy-canvas"></canvas>
+                            <div class="treatment-specular-shine"></div>
+                            
                             <div class="treatment-icon-box">
                                 <!-- Performance Icon -->
                                 <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12,3c-4.97,0-9,4.03-9,9c0,2.12,0.74,4.07,1.97,5.61L4.35,19.4c-0.39,0.39-0.39,1.02,0,1.41c0.39,0.39,1.02,0.39,1.41,0l1.9-1.9C9.04,19.58,10.47,20,12,20c4.97,0,9-4.03,9-9S16.97,3,12,3z M12,18c-3.31,0-6-2.69-6-6s2.69-6,6-6s6,2.69,6,6S15.31,18,12,18z"/></svg>
                             </div>
                             <h3 class="treatment-title">Performance Anxiety</h3>
                             <p class="treatment-desc">Rebalance emotional health, lower high cortisol levels, and boost core psychological confidence under intimate performance scenarios.</p>
-                            <button class="btn btn-card open-modal-btn" aria-haspopup="dialog" aria-controls="appointment-modal">
-                                <span>Get Consultation</span>
-                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg>
-                            </button>
+                            
+                            <div class="magnetic-btn-wrap">
+                                <button class="btn btn-card magnetic-btn open-modal-btn" aria-haspopup="dialog" aria-controls="appointment-modal">
+                                    <span>Get Consultation</span>
+                                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
-
+ 
                     <!-- Treatment Card 4: Weakness -->
-                    <div class="treatment-card horizontal-card reveal-on-scroll">
-                        <div class="tilt-element animate-horizontal-layout">
+                    <div class="treatment-card horizontal-card">
+                        <div class="treatment-ambient-shadow"></div>
+                        <div class="treatment-card-inner animate-horizontal-layout">
+                            <canvas class="treatment-energy-canvas"></canvas>
+                            <div class="treatment-specular-shine"></div>
+                            
                             <div class="treatment-icon-box">
                                 <!-- Weakness Icon -->
                                 <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19,10.5C19,8.08 17.06,6.12 14.64,6.12C13.84,6.12 13.08,6.34 12.44,6.72L14.28,8.56C14.4,8.53 14.5,8.5 14.64,8.5A2,2 0 0,1 16.64,10.5C16.64,11.23 16.24,11.87 15.65,12.2L17.5,14.05C18.42,13.2 19,11.93 19,10.5M3,3L4.27,4.27L7.43,7.43C5.9,8.53 5,10.3 5,12.3A7,7 0 0,0 12,19.3C13.6,19.3 15.06,18.77 16.23,17.88L19.73,21.38L21,20.11L4.27,3.38L3,3M7.3,12.3C7.3,9.7 9.4,7.6 12,7.6C12.18,7.6 12.36,7.62 12.54,7.65L10.56,9.63C9.07,9.88 7.89,11.06 7.64,12.55L9.62,14.53C9.6,14.35 9.58,14.17 9.58,14C9.58,12.62 10.7,11.5 12.08,11.5C12.25,11.5 12.43,11.52 12.6,11.56L14.62,13.58C14.6,13.72 14.58,13.86 14.58,14A2.5,2.5 0 0,1 12.08,16.5C12,16.5 11.82,16.48 11.64,16.44L9.65,18.43C10.38,18.72 11.17,18.88 12,18.88A6.58,6.58 0 0,0 18.58,12.3C18.58,11.36 18.35,10.47 17.95,9.69L19.46,8.18C20.12,9.37 20.5,10.74 20.5,12.2A8.5,8.5 0 0,1 12,20.7C10.12,20.7 8.4,20.08 7.03,19.04L4.85,21.22L3.58,19.95L5.76,17.77C4.65,16.27 4,14.43 4,12.43C4,9.62 5.33,7.12 7.3,5.63" /></svg>
                             </div>
                             <h3 class="treatment-title">Internal Weakness</h3>
                             <p class="treatment-desc">Cleanse and revitalize reproductive tissue channels (Shukra Dhatu). Balances body doshas (Vata-Pitta-Kapha) to boost overall health, focus, and drive.</p>
-                            <button class="btn btn-card open-modal-btn" aria-haspopup="dialog" aria-controls="appointment-modal">
-                                <span>Get Consultation</span>
-                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg>
-                            </button>
+                            
+                            <div class="magnetic-btn-wrap">
+                                <button class="btn btn-card magnetic-btn open-modal-btn" aria-haspopup="dialog" aria-controls="appointment-modal">
+                                    <span>Get Consultation</span>
+                                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
-
+ 
                     <!-- Treatment Card 5: Male Problems -->
-                    <div class="treatment-card callout-card reveal-on-scroll">
-                        <div class="tilt-element">
-                            <div class="treatment-icon-box">
-                                <!-- Male Problems Icon -->
-                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M9,2A7,7 0 0,0 2,9C2,12.86 5.14,16 9,16C10.42,16 11.72,15.58 12.81,14.86L18.5,20.55L19.92,19.14L14.23,13.45C15.32,12.31 16,10.74 16,9C16,5.14 12.86,2 9,2M9,4A5,5 0 0,1 14,9A5,5 0 0,1 9,14A5,5 0 0,1 4,9A5,5 0 0,1 9,4Z"/></svg>
+                    <div class="treatment-card callout-card">
+                        <div class="treatment-ambient-shadow"></div>
+                        <div class="treatment-card-inner">
+                            <canvas class="treatment-energy-canvas"></canvas>
+                            <div class="treatment-specular-shine"></div>
+                            
+                            <div class="treatment-callout-grid">
+                                <div class="treatment-icon-box">
+                                    <!-- Male Problems Icon -->
+                                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M9,2A7,7 0 0,0 2,9C2,12.86 5.14,16 9,16C10.42,16 11.72,15.58 12.81,14.86L18.5,20.55L19.92,19.14L14.23,13.45C15.32,12.31 16,10.74 16,9C16,5.14 12.86,2 9,2M9,4A5,5 0 0,1 14,9A5,5 0 0,1 9,14A5,5 0 0,1 4,9A5,5 0 0,1 9,4Z"/></svg>
+                                </div>
+                                <div class="treatment-callout-text">
+                                    <h3 class="treatment-title">Comprehensive Male Wellness</h3>
+                                    <p class="treatment-desc">Therapies addressing hormonal imbalance, low testosterone levels, mood alterations, and vital energy drops through targeted panchakarma and rasayanas.</p>
+                                </div>
+                                <div class="magnetic-btn-wrap">
+                                    <button class="btn btn-card magnetic-btn open-modal-btn" aria-haspopup="dialog" aria-controls="appointment-modal">
+                                        <span>Get Consultation</span>
+                                        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg>
+                                    </button>
+                                </div>
                             </div>
-                            <h3 class="treatment-title">Comprehensive Male Wellness</h3>
-                            <p class="treatment-desc">Therapies addressing hormonal imbalance, low testosterone levels, mood alterations, and vital energy drops through targeted panchakarma and rasayanas.</p>
-                            <button class="btn btn-card open-modal-btn" aria-haspopup="dialog" aria-controls="appointment-modal">
-                                <span>Get Consultation</span>
-                                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/></svg>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -527,30 +649,50 @@
                         <h3 class="timeline-main-title">Your Treatment Journey</h3>
                         
                         <div class="timeline-container">
+                            <!-- SVG golden path dynamic connector -->
+                            <div class="timeline-path-wrapper">
+                                <svg class="timeline-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                    <line x1="50" y1="0" x2="50" y2="100" stroke="rgba(250, 249, 246, 0.15)" stroke-width="2" />
+                                    <path class="timeline-active-path" d="M 50,0 L 50,100" stroke="var(--color-gold)" stroke-width="2.5" fill="none" />
+                                </svg>
+                            </div>
+ 
                             <!-- Timeline Step 1 -->
                             <div class="timeline-step">
                                 <div class="step-number">01</div>
-                                <div class="step-content">
-                                    <h4>Confidential Diagnosis</h4>
-                                    <p>Comprehensive physical and lifestyle evaluation with our certified expert sexologists (Online or In-Clinic).</p>
+                                <div class="timeline-step-ambient-shadow"></div>
+                                <div class="timeline-step-inner">
+                                    <div class="timeline-specular-shine"></div>
+                                    <div class="step-content">
+                                        <h4>Confidential Diagnosis</h4>
+                                        <p>Comprehensive physical and lifestyle evaluation with our certified expert sexologists (Online or In-Clinic).</p>
+                                    </div>
                                 </div>
                             </div>
                             
                             <!-- Timeline Step 2 -->
                             <div class="timeline-step">
                                 <div class="step-number">02</div>
-                                <div class="step-content">
-                                    <h4>Custom Formulation</h4>
-                                    <p>Preparation of individualized herbal remedies tailored strictly to your body's dosha composition.</p>
+                                <div class="timeline-step-ambient-shadow"></div>
+                                <div class="timeline-step-inner">
+                                    <div class="timeline-specular-shine"></div>
+                                    <div class="step-content">
+                                        <h4>Custom Formulation</h4>
+                                        <p>Preparation of individualized herbal remedies tailored strictly to your body's dosha composition.</p>
+                                    </div>
                                 </div>
                             </div>
-
+ 
                             <!-- Timeline Step 3 -->
                             <div class="timeline-step">
                                 <div class="step-number">03</div>
-                                <div class="step-content">
-                                    <h4>Ongoing Medical Support</h4>
-                                    <p>Regular check-ins with our team to monitor progress and adjust dosage and nutrition parameters.</p>
+                                <div class="timeline-step-ambient-shadow"></div>
+                                <div class="timeline-step-inner">
+                                    <div class="timeline-specular-shine"></div>
+                                    <div class="step-content">
+                                        <h4>Ongoing Medical Support</h4>
+                                        <p>Regular check-ins with our team to monitor progress and adjust dosage and nutrition parameters.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -560,7 +702,9 @@
         </section>
 
         <!-- 7. Amenities Section (Luxury Grid with Real Images) -->
-        <section id="amenities" class="amenities-section">
+        <section id="amenities" class="amenities-section art-section">
+            <div class="art-section-noise"></div>
+            <div class="art-section-glow"></div>
             <div class="container">
                 <div class="section-header reveal-on-scroll">
                     <span class="section-subtitle">Modern Infrastructure</span>
@@ -570,62 +714,203 @@
 
                 <div class="grid-amenities">
                     <!-- Amenity 1 -->
-                    <div class="amenity-card reveal-on-scroll">
-                        <div class="amenity-visual">
-                            <img src="images/therapy.png" alt="Multispeciality Therapy Centre - Luxury Panchakarma Chamber" class="amenity-img">
-                            <div class="visual-gradient-overlay"></div>
-                        </div>
-                        <div class="amenity-info">
-                            <h3>Multispeciality Therapy Centre</h3>
-                            <p>Private, air-conditioned chambers for traditional panchakarma therapies under sterile, calm surroundings.</p>
+                    <div class="amenity-card reveal-on-scroll" data-card-index="0">
+                        <div class="card-ambient-shadow"></div>
+                        <div class="amenity-card-inner">
+                            <div class="card-noise-layer"></div>
+                            <canvas class="card-particles-canvas"></canvas>
+                            <div class="card-specular-shine"></div>
+                            <div class="card-glass-frame"></div>
+                            <div class="card-accent-line"></div>
+                            
+                            <div class="amenity-visual">
+                                <span class="amenity-number">01</span>
+                                <img src="images/therapy.png" alt="Multispeciality Therapy Centre - Luxury Panchakarma Chamber" class="amenity-img">
+                                <div class="image-lighting-overlay"></div>
+                                <div class="visual-gradient-overlay"></div>
+                            </div>
+                            
+                            <div class="amenity-info">
+                                <span class="amenity-tag">Therapy Center</span>
+                                <h3>
+                                    <span class="word"><span class="char">M</span><span class="char">u</span><span class="char">l</span><span class="char">t</span><span class="char">i</span><span class="char">s</span><span class="char">p</span><span class="char">e</span><span class="char">c</span><span class="char">i</span><span class="char">a</span><span class="char">l</span><span class="char">i</span><span class="char">t</span><span class="char">y</span></span>
+                                    <span class="word"><span class="char">T</span><span class="char">h</span><span class="char">e</span><span class="char">r</span><span class="char">a</span><span class="char">p</span><span class="char">y</span></span>
+                                    <span class="word"><span class="char">C</span><span class="char">e</span><span class="char">n</span><span class="char">t</span><span class="char">r</span><span class="char">e</span></span>
+                                </h3>
+                                <p>Private, air-conditioned chambers for traditional panchakarma therapies under sterile, calm surroundings.</p>
+                                
+                                <div class="magnetic-btn-wrap">
+                                    <button type="button" class="magnetic-btn open-modal-btn" aria-haspopup="dialog" aria-controls="appointment-modal">
+                                        <div class="btn-glow-ring"></div>
+                                        <span class="btn-text">Explore Space</span>
+                                        <span class="btn-hardware-icon">
+                                            <svg viewBox="0 0 24 24" width="16" height="16">
+                                                <path fill="currentColor" d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"/>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Amenity 2 -->
-                    <div class="amenity-card reveal-on-scroll">
-                        <div class="amenity-visual">
-                            <img src="images/lab.png" alt="Diagnostic Labs - Clean Medical Testing Room" class="amenity-img">
-                            <div class="visual-gradient-overlay"></div>
-                        </div>
-                        <div class="amenity-info">
-                            <h3>Diagnostic Labs</h3>
-                            <p>Equipped with advanced parameters for hormone profiles, absolute blood analysis, and sperm health checks.</p>
+                    <div class="amenity-card reveal-on-scroll" data-card-index="1">
+                        <div class="card-ambient-shadow"></div>
+                        <div class="amenity-card-inner">
+                            <div class="card-noise-layer"></div>
+                            <canvas class="card-particles-canvas"></canvas>
+                            <div class="card-specular-shine"></div>
+                            <div class="card-glass-frame"></div>
+                            <div class="card-accent-line"></div>
+                            
+                            <div class="amenity-visual">
+                                <span class="amenity-number">02</span>
+                                <img src="images/lab.png" alt="Diagnostic Labs - Clean Medical Testing Room" class="amenity-img">
+                                <div class="image-lighting-overlay"></div>
+                                <div class="visual-gradient-overlay"></div>
+                            </div>
+                            
+                            <div class="amenity-info">
+                                <span class="amenity-tag">Diagnostic Labs</span>
+                                <h3>
+                                    <span class="word"><span class="char">D</span><span class="char">i</span><span class="char">a</span><span class="char">g</span><span class="char">n</span><span class="char">o</span><span class="char">s</span><span class="char">t</span><span class="char">i</span><span class="char">c</span></span>
+                                    <span class="word"><span class="char">L</span><span class="char">a</span><span class="char">b</span><span class="char">s</span></span>
+                                </h3>
+                                <p>Equipped with advanced parameters for hormone profiles, absolute blood analysis, and sperm health checks.</p>
+                                
+                                <div class="magnetic-btn-wrap">
+                                    <button type="button" class="magnetic-btn open-modal-btn" aria-haspopup="dialog" aria-controls="appointment-modal">
+                                        <div class="btn-glow-ring"></div>
+                                        <span class="btn-text">Explore Space</span>
+                                        <span class="btn-hardware-icon">
+                                            <svg viewBox="0 0 24 24" width="16" height="16">
+                                                <path fill="currentColor" d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"/>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Amenity 3 -->
-                    <div class="amenity-card reveal-on-scroll">
-                        <div class="amenity-visual">
-                            <img src="images/pharmacy.png" alt="In-House Pharmacy - Freshly Blended Organic Remedies" class="amenity-img">
-                            <div class="visual-gradient-overlay"></div>
-                        </div>
-                        <div class="amenity-info">
-                            <h3>In-House Pharmacy</h3>
-                            <p>Get freshly blended organic medicines prepared daily by Ayurvedic pharmacists using state-of-the-art measures.</p>
+                    <div class="amenity-card reveal-on-scroll" data-card-index="2">
+                        <div class="card-ambient-shadow"></div>
+                        <div class="amenity-card-inner">
+                            <div class="card-noise-layer"></div>
+                            <canvas class="card-particles-canvas"></canvas>
+                            <div class="card-specular-shine"></div>
+                            <div class="card-glass-frame"></div>
+                            <div class="card-accent-line"></div>
+                            
+                            <div class="amenity-visual">
+                                <span class="amenity-number">03</span>
+                                <img src="images/pharmacy.png" alt="In-House Pharmacy - Freshly Blended Organic Remedies" class="amenity-img">
+                                <div class="image-lighting-overlay"></div>
+                                <div class="visual-gradient-overlay"></div>
+                            </div>
+                            
+                            <div class="amenity-info">
+                                <span class="amenity-tag">Pharmacy</span>
+                                <h3>
+                                    <span class="word"><span class="char">I</span><span class="char">n</span><span class="char">-</span><span class="char">H</span><span class="char">o</span><span class="char">u</span><span class="char">s</span><span class="char">e</span></span>
+                                    <span class="word"><span class="char">P</span><span class="char">h</span><span class="char">a</span><span class="char">r</span><span class="char">m</span><span class="char">a</span><span class="char">c</span><span class="char">y</span></span>
+                                </h3>
+                                <p>Get freshly blended organic medicines prepared daily by Ayurvedic pharmacists using state-of-the-art measures.</p>
+                                
+                                <div class="magnetic-btn-wrap">
+                                    <button type="button" class="magnetic-btn open-modal-btn" aria-haspopup="dialog" aria-controls="appointment-modal">
+                                        <div class="btn-glow-ring"></div>
+                                        <span class="btn-text">Explore Space</span>
+                                        <span class="btn-hardware-icon">
+                                            <svg viewBox="0 0 24 24" width="16" height="16">
+                                                <path fill="currentColor" d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"/>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Amenity 4 -->
-                    <div class="amenity-card reveal-on-scroll">
-                        <div class="amenity-visual">
-                            <img src="images/diet.png" alt="Satvik Aahaar - Custom Ayurvedic Diet Meal Plan" class="amenity-img">
-                            <div class="visual-gradient-overlay"></div>
-                        </div>
-                        <div class="amenity-info">
-                            <h3>Satvik Aahaar (Diet Plans)</h3>
-                            <p>Custom nutritional and detox regimes configured individually to boost the healing efficiency of Ayurvedic pills.</p>
+                    <div class="amenity-card reveal-on-scroll" data-card-index="3">
+                        <div class="card-ambient-shadow"></div>
+                        <div class="amenity-card-inner">
+                            <div class="card-noise-layer"></div>
+                            <canvas class="card-particles-canvas"></canvas>
+                            <div class="card-specular-shine"></div>
+                            <div class="card-glass-frame"></div>
+                            <div class="card-accent-line"></div>
+                            
+                            <div class="amenity-visual">
+                                <span class="amenity-number">04</span>
+                                <img src="images/diet.png" alt="Satvik Aahaar - Custom Ayurvedic Diet Meal Plan" class="amenity-img">
+                                <div class="image-lighting-overlay"></div>
+                                <div class="visual-gradient-overlay"></div>
+                            </div>
+                            
+                            <div class="amenity-info">
+                                <span class="amenity-tag">Diet Plans</span>
+                                <h3>
+                                    <span class="word"><span class="char">S</span><span class="char">a</span><span class="char">t</span><span class="char">v</span><span class="char">i</span><span class="char">k</span></span>
+                                    <span class="word"><span class="char">A</span><span class="char">a</span><span class="char">h</span><span class="char">a</span><span class="char">r</span></span>
+                                </h3>
+                                <p>Custom nutritional and detox regimes configured individually to boost the healing efficiency of Ayurvedic pills.</p>
+                                
+                                <div class="magnetic-btn-wrap">
+                                    <button type="button" class="magnetic-btn open-modal-btn" aria-haspopup="dialog" aria-controls="appointment-modal">
+                                        <div class="btn-glow-ring"></div>
+                                        <span class="btn-text">Explore Space</span>
+                                        <span class="btn-hardware-icon">
+                                            <svg viewBox="0 0 24 24" width="16" height="16">
+                                                <path fill="currentColor" d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"/>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Amenity 5 -->
-                    <div class="amenity-card reveal-on-scroll">
-                        <div class="amenity-visual">
-                            <img src="images/room.png" alt="Premium Inpatient Suite - Luxury bedroom for wellness stay" class="amenity-img">
-                            <div class="visual-gradient-overlay"></div>
-                        </div>
-                        <div class="amenity-info">
-                            <h3>Premium Inpatient Care</h3>
-                            <p>Luxury suites with 24x7 medical staff assistance for customers requiring deep panchakarma detoxification regimes.</p>
+                    <div class="amenity-card reveal-on-scroll" data-card-index="4">
+                        <div class="card-ambient-shadow"></div>
+                        <div class="amenity-card-inner">
+                            <div class="card-noise-layer"></div>
+                            <canvas class="card-particles-canvas"></canvas>
+                            <div class="card-specular-shine"></div>
+                            <div class="card-glass-frame"></div>
+                            <div class="card-accent-line"></div>
+                            
+                            <div class="amenity-visual">
+                                <span class="amenity-number">05</span>
+                                <img src="images/room.png" alt="Premium Inpatient Suite - Luxury bedroom for wellness stay" class="amenity-img">
+                                <div class="image-lighting-overlay"></div>
+                                <div class="visual-gradient-overlay"></div>
+                            </div>
+                            
+                            <div class="amenity-info">
+                                <span class="amenity-tag">Inpatient Care</span>
+                                <h3>
+                                    <span class="word"><span class="char">P</span><span class="char">r</span><span class="char">e</span><span class="char">m</span><span class="char">i</span><span class="char">u</span><span class="char">m</span></span>
+                                    <span class="word"><span class="char">I</span><span class="char">n</span><span class="char">p</span><span class="char">a</span><span class="char">t</span><span class="char">i</span><span class="char">e</span><span class="char">n</span><span class="char">t</span></span>
+                                </h3>
+                                <p>Luxury suites with 24x7 medical staff assistance for customers requiring deep panchakarma detoxification regimes.</p>
+                                
+                                <div class="magnetic-btn-wrap">
+                                    <button type="button" class="magnetic-btn open-modal-btn" aria-haspopup="dialog" aria-controls="appointment-modal">
+                                        <div class="btn-glow-ring"></div>
+                                        <span class="btn-text">Explore Space</span>
+                                        <span class="btn-hardware-icon">
+                                            <svg viewBox="0 0 24 24" width="16" height="16">
+                                                <path fill="currentColor" d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"/>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -940,7 +1225,10 @@
                                 <div class="detail-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg></div>
                                 <div class="detail-text">
                                     <h4>Phone / Hotline</h4>
-                                    <p>+91 63877 42417 (General Helpline)<br>+91 63877 42417 (WhatsApp Direct)</p>
+                                    <p>
+                                        <a href="tel:+916387742417" class="contact-phone-link" style="color:inherit;text-decoration:none;">+91 63877 42417</a> (General Helpline)<br>
+                                        <a href="https://wa.me/916387742417" target="_blank" rel="noopener noreferrer" class="contact-phone-link" style="color:inherit;text-decoration:none;">+91 63877 42417</a> (WhatsApp Direct)
+                                    </p>
                                 </div>
                             </div>
                             <div class="contact-detail-item">
@@ -1044,7 +1332,7 @@
         <div class="container footer-grid">
             <!-- Col 1: Brand Info -->
             <div class="footer-col footer-about">
-                <a href="#" class="brand-logo footer-logo">
+                <a href="#hero" class="brand-logo footer-logo">
                     <svg class="logo-symbol" viewBox="0 0 100 100">
                         <circle cx="50" cy="50" r="45" fill="none" stroke="#d4af37" stroke-width="2" />
                         <path fill="#d4af37" d="M50,18 C50,18 43,30 43,40 C43,55 57,55 57,40 C57,30 50,18 50,18 Z M50,45 C50,45 40,55 33,65 C30,71 35,77 42,75 C49,73 50,60 50,60 C50,60 51,73 58,75 C65,77 70,71 67,65 C60,55 50,45 50,45 Z" />
@@ -1094,13 +1382,73 @@
             <div class="container footer-bottom-flex">
                 <p class="copyright-txt">&copy; 2026 Life Root Ayurveda. All Rights Reserved.</p>
                 <ul class="footer-policy-links">
-                    <li><a href="#privacy">Privacy Policy</a></li>
-                    <li><a href="#terms">Terms &amp; Conditions</a></li>
-                    <li><a href="#disclaimer">Medical Disclaimer</a></li>
+                    <li><a href="#privacy-modal">Privacy Policy</a></li>
+                    <li><a href="#terms-modal">Terms &amp; Conditions</a></li>
+                    <li><a href="#disclaimer-modal">Medical Disclaimer</a></li>
                 </ul>
             </div>
         </div>
     </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div class="modal-overlay policy-modal" id="privacy-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
+        <div class="modal-box modal-box-large">
+            <button class="modal-close-btn policy-close-btn" aria-label="Close Privacy Dialog">&times;</button>
+            <div class="modal-header">
+                <h3 id="privacy-title">Privacy Policy</h3>
+                <p>Last updated: July 2026</p>
+            </div>
+            <div class="modal-body-content">
+                <p>At Life Root Ayurveda, we prioritize the confidentiality and privacy of our patients. All personal health information, consultation details, and shipping records are strictly secured.</p>
+                <h4>1. Information Collection</h4>
+                <p>We collect only the essential information required to arrange consultations and deliver prescribed formulations securely. This includes your name, WhatsApp contact number, and health concerns.</p>
+                <h4>2. Information Security</h4>
+                <p>Your data is stored securely and is never shared with third-party advertisers or unauthorized external entities. Consultations with our medical team are strictly confidential.</p>
+                <h4>3. Secure Shipments</h4>
+                <p>Medication packages are dispatched in neutral, discrete packaging without any medical terminology or mentions of sexual health on the outer labeling to protect your privacy.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms & Conditions Modal -->
+    <div class="modal-overlay policy-modal" id="terms-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="terms-title">
+        <div class="modal-box modal-box-large">
+            <button class="modal-close-btn policy-close-btn" aria-label="Close Terms Dialog">&times;</button>
+            <div class="modal-header">
+                <h3 id="terms-title">Terms &amp; Conditions</h3>
+                <p>Last updated: July 2026</p>
+            </div>
+            <div class="modal-body-content">
+                <p>Welcome to Life Root Ayurveda. By accessing our platform, booking consultations, or utilizing our treatment programs, you agree to comply with and be bound by the following terms.</p>
+                <h4>1. Medical Advice Disclaimer</h4>
+                <p>All consultations and custom formulations are based on traditional Ayurvedic principles. Recommending treatment is based on individual body constitution (Doshas) and must be followed as advised.</p>
+                <h4>2. User Responsibilities</h4>
+                <p>Users must provide accurate, complete health information during consultations. Life Root Ayurveda is not responsible for complications arising from undisclosed health conditions.</p>
+                <h4>3. Appointments &amp; Cancellations</h4>
+                <p>Appointments are subject to availability. Life Root Ayurveda reserves the right to reschedule or modify appointments with reasonable notice.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Medical Disclaimer Modal -->
+    <div class="modal-overlay policy-modal" id="disclaimer-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="disclaimer-title">
+        <div class="modal-box modal-box-large">
+            <button class="modal-close-btn policy-close-btn" aria-label="Close Disclaimer Dialog">&times;</button>
+            <div class="modal-header">
+                <h3 id="disclaimer-title">Medical Disclaimer</h3>
+                <p>Last updated: July 2026</p>
+            </div>
+            <div class="modal-body-content">
+                <p>The information and Ayurvedic treatments provided by Life Root Ayurveda are intended for general male wellness and sexual health improvement. They are not a substitute for emergency care or professional surgical advice.</p>
+                <h4>1. Treatment Outcomes</h4>
+                <p>Ayurvedic therapies target root causes and operate on biological restoration. Individual outcomes may vary based on lifestyle, diet, body constitution (Dosha), and adherence to treatment regimens.</p>
+                <h4>2. Herbal Safety</h4>
+                <p>All formulations are ISO, GMP, and AYUSH certified. However, if you experience any unexpected sensitivity or allergies, please suspend use immediately and consult our team.</p>
+                <h4>3. No Guarantee of Cure</h4>
+                <p>While we observe a high success rate (over 95% of patients reporting recovery), traditional medicine outcomes are highly dependent on individual factors and no absolute guarantee of cure is implied.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- 11. Appointment Booking Modal (Popup Dialog) -->
     <div class="modal-overlay" id="appointment-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
@@ -1172,22 +1520,46 @@
         </div>
     </div>
 
-    <!-- Interactive Floating Actions (Bottom Corners) -->
-    <div class="floating-action-group" role="complementary" aria-label="Quick Action Buttons">
-        <!-- Floating WhatsApp -->
-        <a href="https://wa.me/916387742417" target="_blank" rel="noopener noreferrer" class="floating-btn whatsapp-btn" aria-label="Direct WhatsApp Chat">
-            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.47 16.86L2.05 22L7.3 20.63C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.9C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.02L7.55 18.84L4.41 19.66L5.25 16.59L5.05 16.27C4.24 14.99 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.03 8.5 7.03 9.73C7.03 10.97 7.93 12.16 8.05 12.33C8.18 12.5 9.82 15.03 12.33 16.12C12.93 16.38 13.39 16.52 13.75 16.64C14.36 16.83 14.91 16.8 15.35 16.74C15.84 16.67 16.86 16.12 17.07 15.53C17.28 14.94 17.28 14.44 17.22 14.33C17.15 14.22 17 14.16 16.79 14.05L15.42 13.38C15.26 13.3 15.1 13.26 14.94 13.5C14.78 13.74 14.32 14.28 14.18 14.44C14.05 14.61 13.91 14.63 13.7 14.52C13.49 14.41 12.8 14.19 11.97 13.45C11.33 12.88 10.9 12.17 10.77 11.95C10.65 11.74 10.76 11.62 10.87 11.52C10.97 11.42 11.1 11.25 11.21 11.11C11.31 10.97 11.35 10.87 11.42 10.72C11.48 10.58 11.45 10.45 11.4 10.35C11.35 10.25 10.9 9.15 10.71 8.69C10.53 8.24 10.34 8.3 10.2 8.3C10.07 8.3 9.91 8.3 9.76 8.3C9.6 8.3 9.35 8.36 9.13 8.6C8.9 8.84 8.53 9.21 8.53 10.03C8.53 10.85 9.13 11.64 9.21 11.75" /></svg>
-        </a>
+    <!-- Premium Brand Floating Action Dock -->
+    <div class="brand-action-dock" id="brand-action-dock" role="complementary" aria-label="Premium Floating Dock">
+        <div class="dock-glass-base">
+            <div class="dock-noise"></div>
+            <div class="dock-shine"></div>
+        </div>
         
-        <!-- Floating Emergency Phone Call -->
-        <a href="tel:+916387742417" class="floating-btn call-btn" aria-label="Direct Phone Consultation Call">
-            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>
-        </a>
+        <div class="dock-items">
+            <!-- Consult Call Button -->
+            <a href="tel:+916387742417" class="dock-item dock-item-call" aria-label="Direct Phone Consultation Call" data-state="call">
+                <div class="dock-item-specular"></div>
+                <div class="dock-item-icon">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg>
+                </div>
+                <span class="dock-tooltip">CALL</span>
+            </a>
 
-        <!-- Scroll Back To Top Button -->
-        <button id="back-to-top-btn" class="floating-btn scroll-top-btn" aria-label="Scroll Back to Top">
-            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"/></svg>
-        </button>
+            <!-- WhatsApp Chat Button -->
+            <a href="https://wa.me/916387742417" target="_blank" rel="noopener noreferrer" class="dock-item dock-item-chat" aria-label="Direct WhatsApp Chat" data-state="chat">
+                <div class="dock-item-specular"></div>
+                <div class="dock-item-icon">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.47 16.86L2.05 22L7.3 20.63C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.9C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.02L7.55 18.84L4.41 19.66L5.25 16.59L5.05 16.27C4.24 14.99 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.03 8.5 7.03 9.73C7.03 10.97 7.93 12.16 8.05 12.33C8.18 12.5 9.82 15.03 12.33 16.12C12.93 16.38 13.39 16.52 13.75 16.64C14.36 16.83 14.91 16.8 15.35 16.74C15.84 16.67 16.86 16.12 17.07 15.53C17.28 14.94 17.28 14.44 17.22 14.33C17.15 14.22 17 14.16 16.79 14.05L15.42 13.38C15.26 13.3 15.1 13.26 14.94 13.5C14.78 13.74 14.32 14.28 14.18 14.44C14.05 14.61 13.91 14.63 13.7 14.52C13.49 14.41 12.8 14.19 11.97 13.45C11.33 12.88 10.9 12.17 10.77 11.95C10.65 11.74 10.76 11.62 10.87 11.52C10.97 11.42 11.1 11.25 11.21 11.11C11.31 10.97 11.35 10.87 11.42 10.72C11.48 10.58 11.45 10.45 11.4 10.35C11.35 10.25 10.9 9.15 10.71 8.69C10.53 8.24 10.34 8.3 10.2 8.3C10.07 8.3 9.91 8.3 9.76 8.3C9.6 8.3 9.35 8.36 9.13 8.6C8.9 8.84 8.53 9.21 8.53 10.03C8.53 10.85 9.13 11.64 9.21 11.75" /></svg>
+                </div>
+                <span class="dock-tooltip">CHAT</span>
+            </a>
+
+            <!-- Premium Circular Scroll Progress / Back to Top Button -->
+            <button class="dock-item dock-item-scroll" id="dock-scroll-btn" aria-label="Scroll Back to Top" data-state="scroll">
+                <div class="dock-item-specular"></div>
+                <svg class="dock-scroll-svg" viewBox="0 0 36 36">
+                    <path class="dock-scroll-bg-circle" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2.5"/>
+                    <path class="dock-scroll-progress-circle" id="dock-scroll-progress-circle" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--color-gold)" stroke-width="2.5" stroke-dasharray="100, 100" stroke-dashoffset="100"/>
+                </svg>
+                <div class="dock-item-icon scroll-icon-state">
+                    <svg viewBox="0 0 24 24" class="arrow-up-svg"><path fill="currentColor" d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"/></svg>
+                    <span class="scroll-percent-text" id="dock-scroll-pct">0%</span>
+                </div>
+                <span class="dock-tooltip" id="dock-scroll-tooltip">SCROLL</span>
+            </button>
+        </div>
     </div>
 
     <!-- Script File (ES module for Vite bundling) -->
